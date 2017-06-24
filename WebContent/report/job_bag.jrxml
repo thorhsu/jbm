@@ -1,0 +1,2030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="10"/>
+	<property name="ireport.callouts" value="##Wed Jul 06 16:59:13 CST 2011"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CC00CC"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CC00CC"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CC00CC"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CC00CC"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="jobbagList" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["'AB0001111003001'"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jobbagSpliteList" class="java.lang.String">
+		<defaultValueExpression><![CDATA["'YM0004110708005001','YM0004110708004001','YM0004110708003001','YM0002110708003001'"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jbmHome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\jbm\\PostageImage\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select js.JOB_BAG_SPLITE_NO,js.PRINTING_COUNT,js.AFP_FILENAME, js.LP_ZIP_CODE_BEGIN, js.LP_ZIP_CODE_END, js.LP_ZIP_CODE_DIFF, js.LP_BLANK_BEGIN, js.LP_BLANK_END, js.LP_BLANK_DIFF, js.LP_PAPER_BEGIN, js.LP_PAPER_END, js.LP_PAPER_DIFF,
+js.LP_PAGES_SEQ_BEGIN, js.LP_PAGES_SEQ_END, js.LP_PAGES_SEQ_DIFF,  js.LP_ACCOUNT_SEQ_BEGIN, js.LP_ACCOUNT_SEQ_END, js.LP_ACCOUNT_SEQ_DIFF , j.JOB_BAG_NO, j.idf_CUST_NO, c.CUST_NAME , j.CYCLE_DATE, j.DEAD_TIME, j.IS_LP, j.IS_MPS, j.IS_LG,
+js.LP_MACHINE_NAME, js.LP_COMPLETED_USER, js.LP_COMPLETED_MANAGER, js.LP_COMPLETED_DATE_BY_USER, js.LP_COMPLETED_DATE_BY_MANAGER, js.MP_COMPLETED_USER, js.MP_COMPLETED_MANAGER, js.MP_COMPLETED_DATE_BY_USER, js.MP_COMPLETED_DATE_BY_MANAGER, js.MP_MACHINE_NAME,js.LG_COMPLETED_USER, js.LG_COMPLETED_MANAGER, js.LG_COMPLETED_DATE_BY_USER, js.LG_COMPLETED_DATE_BY_MANAGER,
+ j.IS_EDD, j.MP_DM_PS, j.LG_NOTE+'^' LG_NOTE, isnull(j.USE_LG,0) USE_LG,
+j.idf_LP_NO1 LP_NO, c_PRINT_TYPE.CODE_VALUE_TW PRINT_TYPE, c_CODE_PRINTER.CODE_VALUE_TW CODE_PRINTER, lp_PRODMEMO lp_PRODMEMO, lp_PCODE1, lp_PCODE2, lp_PCODE3, lp_PCODE4, lp_PCODE5, lp_PCODE6, lp_PCODE7, lp_PCODE8, isnull(lp_REMARK,'')+'^' lp_REMARK  ,  isnull(LP_NOTE,'')+'^' LP_NOTE,
+j.idf_MP_NO1 MP_NO, mp_PRODMEMO mp_PRODMEMO, mp_PRINT_CODE, isnull(mp_STAMP_SET_FG,0) mp_STAMP_SET_FG, isnull(mp_ZIP_FG,0) mp_ZIP_FG ,  isnull(mp_MP1_IFLAG,0) mp_MP1_IFLAG, isnull(mp_MP2_IFLAG,0) mp_MP2_IFLAG, isnull(mp_MP3_IFLAG,0) mp_MP3_IFLAG, isnull(mp_MP4_IFLAG,0) mp_MP4_IFLAG, mp_MP1_WORD, mp_MP2_WORD, mp_MP3_WORD, mp_MP4_WORD, isnull(mp_REMARK,'')+'^' mp_REMARK, isnull(j.MP_NOTE,'')+'^' MP_NOTE,
+j.idf_PS_NO PS_NO, ps_PRODMEMO ps_PRODMEMO, c_CODE_PS_TYPE.CODE_VALUE_TW PS_TYPE, isnull(ps_ZIP_FG,0)  ps_ZIP_FG, isnull(ps_REMARK,'')+'^'  ps_REMARK, isnull(j.PS_NOTE,'')+'^' PS_NOTE ,
+j.DM_NOTE +'^' DM_NOTE , c_CODE_DISPATCH_TYPE.CODE_VALUE_TW DISPATCH_TYPE_VALUE, j.DISPATCH_TYPE,
+j.idf_LG_NO LG_NO, lg_PROG_NM lg_PROG_NM, lg_MAIL_TO_AREA_DISPLAY, lg_P_LIST, c_CODE_LG_TYPE.CODE_VALUE_TW LG_TYPE , c_CODE_MAIL_TO_POSTOFFICE.CODE_VALUE_TW MAIL_TO_POSTOFFICE , c_CODE_MAIL_CATEGORY.CODE_VALUE_TW MAIL_CATEGORY,
+j.idf_RETURN_NO RETURN_NO, RET_USER_NAME, ret_USER_COMPANY, ret_RETURN_ADDRESS, ret_USER_TEL, j.PROG_NM, j.MRDF, j.SHEETS
+from job_bag j
+join job_bag_splite js on js.IDF_JOB_BAG_NO = j.JOB_BAG_NO
+join customer c on j.idf_CUST_NO = c.CUST_NO
+left outer join code c_PRINT_TYPE on c_PRINT_TYPE.id = lp_CODE_PRINT_TYPE
+left outer join code c_CODE_PRINTER on c_CODE_PRINTER.id = lp_CODE_PRINTER
+left outer join code c_CODE_PS_TYPE on c_CODE_PS_TYPE.id = ps_CODE_PS_TYPE
+left outer join code c_CODE_LG_TYPE on c_CODE_LG_TYPE.id = j.CODE_LG_TYPE
+left outer join code c_CODE_MAIL_TO_POSTOFFICE on c_CODE_MAIL_TO_POSTOFFICE.id = j.CODE_MAIL_TO_POSTOFFICE
+left outer join code c_CODE_MAIL_CATEGORY on c_CODE_MAIL_CATEGORY.id = j.CODE_MAIL_CATEGORY
+left outer join code c_CODE_DISPATCH_TYPE on c_CODE_DISPATCH_TYPE.CODE_KEY = j.DISPATCH_TYPE
+where
+j.JOB_BAG_NO in ($P!{jobbagList}) or
+js.JOB_BAG_SPLITE_NO in   ($P!{jobbagSpliteList})]]>
+	</queryString>
+	<field name="JOB_BAG_SPLITE_NO" class="java.lang.String"/>
+	<field name="PRINTING_COUNT" class="java.lang.Integer"/>
+	<field name="AFP_FILENAME" class="java.lang.String"/>
+	<field name="LP_ZIP_CODE_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_ZIP_CODE_END" class="java.lang.Integer"/>
+	<field name="LP_ZIP_CODE_DIFF" class="java.lang.Integer"/>
+	<field name="LP_BLANK_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_BLANK_END" class="java.lang.Integer"/>
+	<field name="LP_BLANK_DIFF" class="java.lang.Integer"/>
+	<field name="LP_PAPER_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_PAPER_END" class="java.lang.Integer"/>
+	<field name="LP_PAPER_DIFF" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_END" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_DIFF" class="java.lang.Integer"/>
+	<field name="LP_ACCOUNT_SEQ_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_ACCOUNT_SEQ_END" class="java.lang.Integer"/>
+	<field name="LP_ACCOUNT_SEQ_DIFF" class="java.lang.Integer"/>
+	<field name="JOB_BAG_NO" class="java.lang.String"/>
+	<field name="idf_CUST_NO" class="java.lang.String"/>
+	<field name="CUST_NAME" class="java.lang.String"/>
+	<field name="CYCLE_DATE" class="java.sql.Timestamp"/>
+	<field name="DEAD_TIME" class="java.lang.String"/>
+	<field name="IS_LP" class="java.lang.Boolean"/>
+	<field name="IS_MPS" class="java.lang.Boolean"/>
+	<field name="IS_LG" class="java.lang.Boolean"/>
+	<field name="LP_MACHINE_NAME" class="java.lang.String"/>
+	<field name="LP_COMPLETED_USER" class="java.lang.String"/>
+	<field name="LP_COMPLETED_MANAGER" class="java.lang.String"/>
+	<field name="LP_COMPLETED_DATE_BY_USER" class="java.sql.Timestamp"/>
+	<field name="LP_COMPLETED_DATE_BY_MANAGER" class="java.sql.Timestamp"/>
+	<field name="MP_COMPLETED_USER" class="java.lang.String"/>
+	<field name="MP_COMPLETED_MANAGER" class="java.lang.String"/>
+	<field name="MP_COMPLETED_DATE_BY_USER" class="java.sql.Timestamp"/>
+	<field name="MP_COMPLETED_DATE_BY_MANAGER" class="java.sql.Timestamp"/>
+	<field name="MP_MACHINE_NAME" class="java.lang.String"/>
+	<field name="LG_COMPLETED_USER" class="java.lang.String"/>
+	<field name="LG_COMPLETED_MANAGER" class="java.lang.String"/>
+	<field name="LG_COMPLETED_DATE_BY_USER" class="java.sql.Timestamp"/>
+	<field name="LG_COMPLETED_DATE_BY_MANAGER" class="java.sql.Timestamp"/>
+	<field name="IS_EDD" class="java.lang.Boolean"/>
+	<field name="MP_DM_PS" class="java.lang.String"/>
+	<field name="LG_NOTE" class="java.lang.String"/>
+	<field name="USE_LG" class="java.lang.Boolean"/>
+	<field name="LP_NO" class="java.lang.String"/>
+	<field name="PRINT_TYPE" class="java.lang.String"/>
+	<field name="CODE_PRINTER" class="java.lang.String"/>
+	<field name="lp_PRODMEMO" class="java.lang.String"/>
+	<field name="lp_PCODE1" class="java.lang.String"/>
+	<field name="lp_PCODE2" class="java.lang.String"/>
+	<field name="lp_PCODE3" class="java.lang.String"/>
+	<field name="lp_PCODE4" class="java.lang.String"/>
+	<field name="lp_PCODE5" class="java.lang.String"/>
+	<field name="lp_PCODE6" class="java.lang.String"/>
+	<field name="lp_PCODE7" class="java.lang.String"/>
+	<field name="lp_PCODE8" class="java.lang.String"/>
+	<field name="lp_REMARK" class="java.lang.String"/>
+	<field name="LP_NOTE" class="java.lang.String"/>
+	<field name="MP_NO" class="java.lang.String"/>
+	<field name="mp_PRODMEMO" class="java.lang.String"/>
+	<field name="mp_PRINT_CODE" class="java.lang.String"/>
+	<field name="mp_STAMP_SET_FG" class="java.lang.Boolean"/>
+	<field name="mp_ZIP_FG" class="java.lang.Boolean"/>
+	<field name="mp_MP1_IFLAG" class="java.lang.Boolean"/>
+	<field name="mp_MP2_IFLAG" class="java.lang.Boolean"/>
+	<field name="mp_MP3_IFLAG" class="java.lang.Boolean"/>
+	<field name="mp_MP4_IFLAG" class="java.lang.Boolean"/>
+	<field name="mp_MP1_WORD" class="java.lang.String"/>
+	<field name="mp_MP2_WORD" class="java.lang.String"/>
+	<field name="mp_MP3_WORD" class="java.lang.String"/>
+	<field name="mp_MP4_WORD" class="java.lang.String"/>
+	<field name="mp_REMARK" class="java.lang.String"/>
+	<field name="MP_NOTE" class="java.lang.String"/>
+	<field name="PS_NO" class="java.lang.String"/>
+	<field name="ps_PRODMEMO" class="java.lang.String"/>
+	<field name="PS_TYPE" class="java.lang.String"/>
+	<field name="ps_ZIP_FG" class="java.lang.Boolean"/>
+	<field name="ps_REMARK" class="java.lang.String"/>
+	<field name="PS_NOTE" class="java.lang.String"/>
+	<field name="DM_NOTE" class="java.lang.String"/>
+	<field name="DISPATCH_TYPE_VALUE" class="java.lang.String"/>
+	<field name="DISPATCH_TYPE" class="java.lang.String"/>
+	<field name="LG_NO" class="java.lang.String"/>
+	<field name="lg_PROG_NM" class="java.lang.String"/>
+	<field name="lg_MAIL_TO_AREA_DISPLAY" class="java.lang.String"/>
+	<field name="lg_P_LIST" class="java.lang.Boolean"/>
+	<field name="LG_TYPE" class="java.lang.String"/>
+	<field name="MAIL_TO_POSTOFFICE" class="java.lang.String"/>
+	<field name="MAIL_CATEGORY" class="java.lang.String"/>
+	<field name="RETURN_NO" class="java.lang.String"/>
+	<field name="RET_USER_NAME" class="java.lang.String"/>
+	<field name="ret_USER_COMPANY" class="java.lang.String"/>
+	<field name="ret_RETURN_ADDRESS" class="java.lang.String"/>
+	<field name="ret_USER_TEL" class="java.lang.String"/>
+	<field name="PROG_NM" class="java.lang.String"/>
+	<field name="MRDF" class="java.lang.Integer"/>
+	<field name="SHEETS" class="java.lang.Integer"/>
+	<variable name="V_LP_NOTE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{lp_REMARK}.trim()+ "\r\n" + $F{LP_NOTE}.trim()]]></variableExpression>
+	</variable>
+	<variable name="V_MP_STAMP_SET" class="java.lang.String">
+		<variableExpression><![CDATA[($F{mp_STAMP_SET_FG})?("打郵戳"):("不打郵戳")]]></variableExpression>
+	</variable>
+	<variable name="V_MP_ZIP" class="java.lang.String">
+		<variableExpression><![CDATA[($F{mp_ZIP_FG})?("分區"):("不分區")]]></variableExpression>
+	</variable>
+	<variable name="V_MP_NOTE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{mp_REMARK}.trim()+ "\r\n" + $F{MP_NOTE}.trim()]]></variableExpression>
+	</variable>
+	<variable name="V_MP_MP1_IFLAG" class="java.lang.String">
+		<variableExpression><![CDATA[($F{mp_MP1_IFLAG})?("S"):("F")]]></variableExpression>
+	</variable>
+	<variable name="V_MP_MP2_IFLAG" class="java.lang.String">
+		<variableExpression><![CDATA[($F{mp_MP2_IFLAG})?("S"):("F")]]></variableExpression>
+	</variable>
+	<variable name="V_MP_MP3_IFLAG" class="java.lang.String">
+		<variableExpression><![CDATA[($F{mp_MP3_IFLAG})?("S"):("F")]]></variableExpression>
+	</variable>
+	<variable name="V_MP_MP4_IFLAG" class="java.lang.String">
+		<variableExpression><![CDATA[($F{mp_MP4_IFLAG})?("S"):("F")]]></variableExpression>
+	</variable>
+	<variable name="V_PS_NOTE" class="java.lang.String">
+		<variableExpression><![CDATA[$F{ps_REMARK}.trim()+ "\r\n" + $F{PS_NOTE}.trim()]]></variableExpression>
+	</variable>
+	<variable name="V_PS_ZIP" class="java.lang.String">
+		<variableExpression><![CDATA[($F{ps_ZIP_FG})?("分區"):("不分區")]]></variableExpression>
+	</variable>
+	<variable name="V_LG_USE_LG" class="java.lang.String">
+		<variableExpression><![CDATA[($F{USE_LG})?("Y"):("N")]]></variableExpression>
+	</variable>
+	<variable name="logoPath" class="java.lang.String"/>
+	<detail>
+		<band height="831" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="51" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[客戶名稱]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="25" width="237" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CUST_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="307" y="27" width="53" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Cycle Date ]]></text>
+			</staticText>
+			<textField pattern="yyyy/MM/dd" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="362" y="25" width="86" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="微軟正黑體" size="14" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CYCLE_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="4" width="80" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{idf_CUST_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="240" y="50" width="49" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[工單號碼:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="50" width="47" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[DeadLine Date]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="459" y="50" width="22" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DEAD_TIME}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<textField isBlankWhenNull="true">
+					<reportElement x="289" y="50" width="120" height="20">
+						<printWhenExpression><![CDATA[$F{JOB_BAG_NO}]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_NO}]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+			<break>
+				<reportElement x="0" y="830" width="100" height="1"/>
+			</break>
+			<staticText>
+				<reportElement x="239" y="20" width="68" height="25"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[工作單]]></text>
+			</staticText>
+			<textField pattern="yyyy/MM/dd hh:mm">
+				<reportElement x="445" y="27" width="108" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="47" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="486" y="50" width="43" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[列印次數]]></text>
+			</staticText>
+			<frame>
+				<reportElement key="LP" style="table_CH" mode="Transparent" x="0" y="70" width="555" height="184" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{IS_LP} == true]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="76" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="13" isBold="true" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[雷射列印]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="20" width="75" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[1.【產品代碼】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="36" width="75" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[2.【產品說明】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="51" width="75" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[3.【物料一】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="178" y="0" width="77" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體" size="9" isBold="false" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{PRINT_TYPE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="77" y="20" width="178" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="399" y="0" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="345" y="15" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"L"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement x="371" y="34" width="152" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"L"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="77" y="36" width="178" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PRODMEMO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="159" y="52" width="56" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[4.【物料二】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="298" y="52" width="21" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[檔案]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="319" y="49" width="236" height="18"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{AFP_FILENAME}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="77" y="52" width="83" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE1}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="215" y="52" width="83" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="67" width="75" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[5.【物料三】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="159" y="67" width="57" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[6.【物料四】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="100" width="23" height="37"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="77" y="0" width="101" height="20"/>
+					<textElement>
+						<font size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{CODE_PRINTER}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="77" y="67" width="83" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE3}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="215" y="67" width="83" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE4}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="24" y="100" width="249" height="84" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_REMARK}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" x="273" y="100" width="282" height="84" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_NOTE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="298" y="68" width="55" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[7.【物料五】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="352" y="67" width="109" height="16"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE5}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="83" width="75" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[6.【物料六】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="78" y="83" width="82" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE6}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="159" y="82" width="57" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[7.【物料七】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="215" y="83" width="83" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE7}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="298" y="83" width="55" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[8.【物料八】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="353" y="83" width="108" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lp_PCODE8}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isBlankWhenNull="true">
+				<reportElement x="529" y="50" width="21" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PRINTING_COUNT}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement key="MP" style="table_CH" mode="Transparent" x="0" y="337" width="555" height="258" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{MP_DM_PS}=="MP"]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="3" y="1" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="14" isBold="true" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[信件裝封 MAIL PROCESSING]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="21" width="100" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[1.【產品代碼】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="21" width="152" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="36" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[2.【產品說明】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="36" width="153" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_PRODMEMO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="91" width="100" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[7.【插件內容二】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="379" y="72" width="143" height="19"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_PRINT_CODE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="56" width="252" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[3.【郵戳日期 Stamp Date】   _____月   _____ 日]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="73" width="100" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[5.【郵戳設定】]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="255" y="55" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="255" y="36" width="16" height="17"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="255" y="20" width="16" height="14"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="255" y="73" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="255" y="91" width="16" height="16"/>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement x="371" y="40" width="152" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"M"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="398" y="4" width="100" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="344" y="20" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"M"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<staticText>
+					<reportElement x="277" y="54" width="100" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[4.【分區Zip】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="277" y="72" width="100" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[6. 【物料版號】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="2" y="126" width="23" height="36" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="236" width="191" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[是否損壞 Spoils ? 是        否 ]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="92" y="238" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="126" y="238" width="16" height="16"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="251" y="236" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[完成機台]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="355" y="238" width="188" height="17"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="523" y="72" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="523" y="54" width="16" height="16"/>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="73" width="150" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_MP_STAMP_SET}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="375" y="55" width="147" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_MP_ZIP}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="279" y="91" width="100" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[8.【插件內容三】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="108" width="100" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[9.【插件內容四】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="278" y="109" width="100" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[10.【插件內容五】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="127" y="91" width="127" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_MP1_WORD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="401" y="89" width="122" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_MP2_WORD}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="523" y="90" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="523" y="108" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="255" y="109" width="16" height="15"/>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement x="127" y="108" width="127" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_MP3_WORD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="402" y="108" width="122" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_MP4_WORD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="104" y="91" width="23" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_MP_MP1_IFLAG}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="380" y="91" width="20" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_MP_MP2_IFLAG}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="104" y="108" width="23" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_MP_MP3_IFLAG}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="379" y="108" width="20" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_MP_MP4_IFLAG}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="table_CH" mode="Transparent" x="26" y="126" width="222" height="110"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{mp_REMARK}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="table_CH" mode="Transparent" x="248" y="126" width="296" height="110"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_NOTE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="357" y="237" width="182" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_MACHINE_NAME}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement key="PS" style="table_CH" mode="Transparent" x="0" y="337" width="555" height="258" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{MP_DM_PS}=="PS"]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="2" y="2" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="14" isBold="true" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[壓封]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="19" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[1.【壓封代號】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="19" width="153" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{PS_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="39" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[2.【產品說明】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="40" width="153" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ps_PRODMEMO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="59" width="103" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[3.【摺疊方式】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="103" y="60" width="152" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{PS_TYPE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="400" y="0" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="346" y="19" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"M"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement x="378" y="39" width="152" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"M"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="279" y="59" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[4.【分區／不分區】]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="257" y="39" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="257" y="59" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="257" y="19" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="523" y="58" width="16" height="16"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="2" y="81" width="23" height="36"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="358" y="209" width="188" height="19"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="3" y="209" width="191" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[是否損壞 Spoils ? 是        否 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="255" y="209" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[完成機台]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="96" y="209" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="130" y="209" width="16" height="16"/>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement x="380" y="59" width="141" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_PS_ZIP}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="275" y="85" width="264" height="99"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{PS_NOTE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="27" y="84" width="246" height="100"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ps_REMARK}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="358" y="209" width="188" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_MACHINE_NAME}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement key="DM" style="table_CH" mode="Transparent" x="0" y="337" width="555" height="258" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{MP_DM_PS}=="DM"]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="3" y="2" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="14" isBold="true" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[DM]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="27" y="57" width="518" height="141" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DM_NOTE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="21" width="23" height="36"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="252" y="208" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[完成機台]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="208" width="191" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[是否損壞 Spoils ? 是        否 ]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="357" y="208" width="188" height="19"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="127" y="208" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="93" y="208" width="16" height="16"/>
+				</rectangle>
+				<componentElement>
+					<reportElement x="346" y="19" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"M"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement x="382" y="39" width="152" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"M"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="382" y="1" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="359" y="208" width="187" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_MACHINE_NAME}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement key="MAIL" style="table_CH" mode="Transparent" x="0" y="600" width="555" height="218" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{DISPATCH_TYPE}=="MAIL"]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="3" y="22" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[1. 【出貨方式】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="22" width="153" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DISPATCH_TYPE_VALUE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="3" width="127" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="13" isBold="true" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[出貨 DISPATCH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="41" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[2. 【是否開立郵資單?】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="60" width="100" height="19"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[3. 【郵資單抬頭】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="281" y="59" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[4. 【郵資單種類】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="381" y="59" width="141" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_TYPE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="371" y="40" width="152" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"I"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="345" y="19" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"I"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<staticText>
+					<reportElement x="399" y="3" width="100" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="4" y="78" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[5. 【交寄方式】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="78" width="151" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MAIL_CATEGORY}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="279" y="78" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[6. 【交寄郵局/公司】]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="381" y="76" width="141" height="22"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MAIL_TO_POSTOFFICE}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="257" y="61" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="257" y="43" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="257" y="22" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="257" y="79" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="524" y="77" width="16" height="16"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="524" y="58" width="16" height="16"/>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="27" y="98" width="518" height="96" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_NOTE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="4" y="99" width="23" height="36"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="434" y="194" width="30" height="23"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="283" y="194" width="48" height="22"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[作業管理師
+Controller:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="173" y="194" width="21" height="23"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="194" width="44" height="24"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[操作員
+Operator:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="61" width="150" height="18"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lg_PROG_NM}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="104" y="42" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{V_LG_USE_LG}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="45" y="196" width="128" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_USER}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="330" y="196" width="103" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_MANAGER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="MM//dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="195" y="196" width="88" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="464" y="196" width="88" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_MANAGER}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement key="TO_CUSTOMER_CS" style="table_CH" mode="Transparent" x="0" y="600" width="555" height="218" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{DISPATCH_TYPE}=="CUSTOMER" || $F{DISPATCH_TYPE}=="TO_CS"]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="395" y="4" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="375" y="39" width="152" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"I"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="340" y="20" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"I"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<staticText>
+					<reportElement x="1" y="20" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[1. 【出貨方式】]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="0" width="126" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="13" isBold="true" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[出貨 DISPATCH]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="103" y="20" width="153" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DISPATCH_TYPE_VALUE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="164" y="197" width="33" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="29" y="60" width="518" height="136" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_NOTE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="451" y="196" width="28" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="282" y="196" width="48" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[作業管理師
+Controller:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="58" width="23" height="36"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="196" width="30" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[操作員
+Operator:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="32" y="198" width="128" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_USER}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="332" y="197" width="115" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_MANAGER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="187" y="197" width="92" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="477" y="197" width="78" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_MANAGER}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement key="RETURN_CUSTOMER" style="table_CH" mode="Transparent" x="0" y="600" width="555" height="218" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{DISPATCH_TYPE}=="RETURN_CUSTOMER"]]></printWhenExpression>
+				</reportElement>
+				<textField isBlankWhenNull="true">
+					<reportElement x="103" y="20" width="149" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DISPATCH_TYPE_VALUE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="0" width="118" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="13" isBold="true" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[出貨 DISPATCH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="20" width="100" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[1. 【出貨方式]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="35" width="100" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[2. 【收件人代號]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="101" y="36" width="150" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RETURN_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="395" y="0" width="100" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[工作完成請掃描]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="375" y="34" width="152" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}+"I"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="341" y="14" width="200" height="20"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}+"I"]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<staticText>
+					<reportElement x="3" y="50" width="100" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[3. 【收件人 姓名]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="103" y="50" width="148" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RET_USER_NAME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="276" y="51" width="101" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[4. 收件人 公司]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="379" y="51" width="144" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ret_USER_COMPANY}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="66" width="100" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[5. 【收件人地址]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="102" y="66" width="149" height="17"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ret_RETURN_ADDRESS}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="277" y="67" width="100" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[6.收件人 電話]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="256" y="51" width="15" height="15"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="256" y="18" width="15" height="15"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="256" y="35" width="15" height="15"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="256" y="67" width="15" height="15"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="525" y="64" width="15" height="15"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="524" y="47" width="15" height="15"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="444" y="196" width="27" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="163" y="196" width="33" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Transparent" x="26" y="83" width="518" height="113" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_NOTE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="280" y="196" width="57" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[作業管理師
+Controller:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="83" width="23" height="36"/>
+					<textElement>
+						<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[本日公告]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="196" width="29" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[操作員
+Operator:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="379" y="67" width="100" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ret_USER_TEL}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="35" y="197" width="128" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_USER}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="336" y="198" width="103" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_MANAGER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="196" y="197" width="84" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="471" y="197" width="84" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_MANAGER}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="1" y="50" width="45" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[工單名:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="43" y="50" width="196" height="20">
+					<printWhenExpression><![CDATA[$F{JOB_BAG_NO}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="微軟正黑體" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PROG_NM}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement style="table_CH" mode="Transparent" x="0" y="254" width="555" height="84" backcolor="#FFFFFF"/>
+				<staticText>
+					<reportElement x="148" y="0" width="100" height="14">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals("AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[空白Blank]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="448" y="0" width="100" height="14"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[帳號 Account Seq.]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="148" y="43" width="100" height="16" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_BLANK_DIFF}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="248" y="13" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_PAPER_BEGIN}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="43" width="43" height="16"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[差Diff]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="448" y="13" width="100" height="15" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_ACCOUNT_SEQ_BEGIN}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" mode="Opaque" x="348" y="13" width="100" height="15" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_PAGES_SEQ_BEGIN}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="148" y="28" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_BLANK_END}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="48" y="0" width="100" height="14"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[ZipCode]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="248" y="28" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_PAPER_END}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="13" width="45" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[起Start]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="274" y="60" width="57" height="23"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[作業管理師
+Controller:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="59" width="28" height="24"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="348" y="0" width="100" height="14"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[頁數 Pages Seq.]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="248" y="43" width="100" height="16" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_PAPER_DIFF}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="424" y="60" width="26" height="23"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[日期:
+Date: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="59" width="43" height="24"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[操作員
+Operator:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="248" y="0" width="100" height="14">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[開始頁Pre-No.]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="348" y="43" width="100" height="16" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_PAGES_SEQ_DIFF}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="448" y="43" width="100" height="16" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_ACCOUNT_SEQ_DIFF}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="48" y="13" width="100" height="15" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_ZIP_CODE_BEGIN}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="148" y="13" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[!$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_BLANK_BEGIN}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="48" y="28" width="100" height="16" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_ZIP_CODE_END}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="448" y="28" width="100" height="15" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_ACCOUNT_SEQ_END}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="48" y="43" width="100" height="16" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_ZIP_CODE_DIFF}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="3" y="29" width="45" height="15"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[迄End]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="348" y="28" width="100" height="15" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_PAGES_SEQ_END}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="148" y="0" width="100" height="14">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals("AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[MRDF]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="248" y="0" width="100" height="14">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="微軟正黑體" size="9" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[SHEETS]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="148" y="13" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[1]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="248" y="13" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[1]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="248" y="28" width="100" height="16" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{SHEETS}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="248" y="43" width="100" height="16" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{SHEETS}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="148" y="28" width="100" height="15" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MRDF}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement style="table_CH" x="148" y="43" width="100" height="16" backcolor="#FFFFFF">
+						<printWhenExpression><![CDATA[$F{idf_CUST_NO}.equals( "AE")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MRDF}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="43" y="62" width="107" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_COMPLETED_USER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="178" y="62" width="98" height="21"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LP_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="333" y="62" width="90" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_COMPLETED_MANAGER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="MM/dd HH:mm" isBlankWhenNull="true">
+					<reportElement x="448" y="62" width="102" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LP_COMPLETED_DATE_BY_MANAGER}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="195" y="0" width="167" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體" size="13"/>
+				</textElement>
+				<text><![CDATA[Fuji Xerox DMS]]></text>
+			</staticText>
+			<image hAlign="Right" vAlign="Middle" isUsingCache="false" onErrorType="Blank">
+				<reportElement x="371" y="4" width="182" height="21"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{jbmHome}+"logo.gif"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

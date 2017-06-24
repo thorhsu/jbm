@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dailyJobControlMonitorLogIII_USER" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="queryDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["convert(char(11), js.LP_COMPLETED_DATE_BY_USER, 120)='2011-11-22'"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="taskType_LP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1=1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="taskType_MP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1=1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="empNo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1=1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="timePeriod" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" ( convert(char(5), js.LP_COMPLETED_DATE_BY_USER, 8) >='16:31' and convert(char(5), js.LP_COMPLETED_DATE_BY_USER, 8) <= '23:59' ) or ( convert(char(5), js.LP_COMPLETED_DATE_BY_USER, 8) >='00:00' and convert(char(5), js.LP_COMPLETED_DATE_BY_USER, 8) <= '00:30' ) "]]></defaultValueExpression>
+	</parameter>
+	<parameter name="queryDate_Display" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mpQueryDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["convert(char(11), js.MP_COMPLETED_DATE_BY_USER, 120)='2011-11-22'"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select js.JOB_BAG_SPLITE_NO,  js.LP_COMPLETED_USER COMPLETED_USER, j.PROG_NM,  js.LP_MACHINE_NAME MACHINE_NAME,  js.LP_COMPLETED_DATE_BY_USER COMPLETED_DATE, js.LP_ACCOUNT_SEQ_BEGIN,  js.LP_ACCOUNT_SEQ_END, js.LP_PAGES_SEQ_BEGIN, js.LP_PAGES_SEQ_END, convert(char(5), js.LP_COMPLETED_DATE_BY_USER, 8) perion, substring(convert(char(8), j.cycle_date, 11), 4, 8) cycleDate, (js.LP_PAGES_SEQ_END - js.LP_PAGES_SEQ_BEGIN + 1) lpPageDiff, (js.LP_ACCOUNT_SEQ_END - js.LP_ACCOUNT_SEQ_BEGIN + 1) lpAccountDiff
+from job_bag j, job_bag_splite js
+where j.JOB_BAG_NO = js.IDF_JOB_BAG_NO and js.LP_COMPLETED_USER is not null
+and $P!{queryDate}
+and $P!{taskType_LP}
+and $P!{empNo}
+and $P!{timePeriod}
+union
+select js.JOB_BAG_SPLITE_NO, js.MP_COMPLETED_USER COMPLETED_USER, j.PROG_NM,  js.MP_MACHINE_NAME MACHINE_NAME, js.MP_COMPLETED_DATE_BY_USER COMPLETED_DATE, js.LP_ACCOUNT_SEQ_BEGIN,  js.LP_ACCOUNT_SEQ_END, js.LP_PAGES_SEQ_BEGIN, js.LP_PAGES_SEQ_END, convert(char(5), js.MP_COMPLETED_DATE_BY_USER, 8) perion, substring(convert(char(8), j.cycle_date, 11), 4, 8) cycleDate, (js.LP_PAGES_SEQ_END - js.LP_PAGES_SEQ_BEGIN + 1) lpPageDiff, (js.LP_ACCOUNT_SEQ_END - js.LP_ACCOUNT_SEQ_BEGIN + 1) lpAccountDiff
+from job_bag j, job_bag_splite js
+where j.JOB_BAG_NO = js.IDF_JOB_BAG_NO and js.MP_COMPLETED_USER is not null
+and $P!{mpQueryDate}
+and $P!{taskType_MP}
+and $P!{empNo}
+and $P!{timePeriod}
+and (j.IS_DELETED = 0 or j.IS_DELETED is null)
+order by MACHINE_NAME, js.JOB_BAG_SPLITE_NO, COMPLETED_USER, perion]]>
+	</queryString>
+	<field name="JOB_BAG_SPLITE_NO" class="java.lang.String"/>
+	<field name="COMPLETED_USER" class="java.lang.String"/>
+	<field name="PROG_NM" class="java.lang.String"/>
+	<field name="MACHINE_NAME" class="java.lang.String"/>
+	<field name="COMPLETED_DATE" class="java.sql.Timestamp"/>
+	<field name="LP_ACCOUNT_SEQ_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_ACCOUNT_SEQ_END" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_END" class="java.lang.Integer"/>
+	<field name="perion" class="java.lang.String"/>
+	<field name="cycleDate" class="java.lang.String"/>
+	<field name="lpPageDiff" class="java.lang.Integer"/>
+	<field name="lpAccountDiff" class="java.lang.Integer"/>
+	<variable name="TIME_PERION" class="java.lang.String">
+		<variableExpression><![CDATA[($F{perion}.compareTo("08:31")>=0 && $F{perion}.compareTo("16:30")<=0)?("(早班)"):(
+($F{perion}.compareTo("00:31")>=0 && $F{perion}.compareTo("08:30")<=0)?("(大夜)"):("(小夜)")
+)]]></variableExpression>
+	</variable>
+	<variable name="LP_ACCOUNT_SEQ_BEGIN_1" class="java.lang.Integer" resetType="Group" resetGroup="userName" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_ACCOUNT_SEQ_BEGIN}]]></variableExpression>
+	</variable>
+	<variable name="LP_ACCOUNT_SEQ_END_1" class="java.lang.Integer" resetType="Group" resetGroup="userName" calculation="Sum">
+		<variableExpression><![CDATA[$F{lpAccountDiff}]]></variableExpression>
+	</variable>
+	<variable name="LP_PAGES_SEQ_BEGIN_1" class="java.lang.Integer" resetType="Group" resetGroup="userName" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_PAGES_SEQ_BEGIN}]]></variableExpression>
+	</variable>
+	<variable name="LP_PAGES_SEQ_END_1" class="java.lang.Integer" resetType="Group" resetGroup="userName" calculation="Sum">
+		<variableExpression><![CDATA[$F{lpPageDiff}]]></variableExpression>
+	</variable>
+	<group name="userName">
+		<groupExpression><![CDATA[$F{MACHINE_NAME}]]></groupExpression>
+		<groupHeader>
+			<band height="42">
+				<staticText>
+					<reportElement x="31" y="20" width="101" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[工作代號-批號]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="193" y="20" width="120" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[活動名稱]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="312" y="20" width="70" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[Accounts]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="382" y="20" width="63" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[Pages]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="445" y="20" width="68" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[完成時間]]></text>
+				</staticText>
+				<line>
+					<reportElement x="2" y="39" width="553" height="1"/>
+				</line>
+				<textField>
+					<reportElement x="2" y="0" width="55" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MACHINE_NAME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="131" y="20" width="61" height="21"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[Cycle Date]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement x="313" y="0" width="69" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{LP_ACCOUNT_SEQ_END_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="382" y="0" width="62" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{LP_PAGES_SEQ_END_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="244" y="0" width="69" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" size="9"/>
+					</textElement>
+					<text><![CDATA[合計：]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="108" y="0" width="337" height="36"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="18"/>
+				</textElement>
+				<text><![CDATA[每日生產統計表 (By MACHINE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="35" width="166" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Daily Job Statistics Report for]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="499" y="20" width="24" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="523" y="20" width="28" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["/" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="455" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="330" y="35" width="115" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{queryDate_Display}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="31" y="0" width="101" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_SPLITE_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement x="192" y="0" width="121" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PROG_NM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="30" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_ACCOUNT_SEQ_BEGIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="0" width="41" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_ACCOUNT_SEQ_END}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="25" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_PAGES_SEQ_BEGIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="0" width="30" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_PAGES_SEQ_END}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd HH:MM">
+				<reportElement x="445" y="0" width="69" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{COMPLETED_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="42" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{COMPLETED_USER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="342" y="0" width="10" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[~]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="0" width="10" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[~]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="131" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{TIME_PERION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="0" width="61" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cycleDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName">
+    <value>net.sourceforge.jtds.jdbc.Driver</value>
+    </property>
+    <property name="url">
+    <value>jdbc:jtds:sqlserver://127.0.0.1/jbm</value>
+    </property>
+    <property name="username">
+    <value>jbm</value>
+    </property>
+    <property name="password">
+    <value>1qazxsw2</value>
+    </property>
+  </bean>
+
+<!--  
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+		destroy-method="destroy">
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/salmat/jbm/hibernate/Lpinfo.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Psinfo.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Lginfo.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Customer.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Employee.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Lcinfo.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Mpinfo.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Code.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Returninfo.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/MenuItemPermission.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/JobCode.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/JobBag.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/JobBagSplite.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Amex.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/SysLog.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Lgform.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctChargeItem.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctDno.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctInvoice.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctCustomerContract.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctJobCodeChargeItem.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/CustomerReceiver.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctSectionJobCodeMapping.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctSectionReceiverMapping.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/Lcform.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctSum1.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctSum2.hbm.xml</value>
+				<value>com/salmat/jbm/hibernate/AcctSum3.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+                </prop>
+				<prop key="hibernate.show_sql">true</prop>                
+			</props>
+		</property>
+	</bean>
+	
+    <bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+	</bean>
+    <bean id="hibernateSessionFactory"
+		class="com.salmat.jbm.hibernate.HibernateSessionFactory">
+		<property name="hibernateTemplate">
+            <ref bean="hibernateTemplate"/>
+        </property>
+	</bean>
+	
+-->	
+
+	<bean id="SchedulerService" class="com.salmat.jbm.service.SchedulerService"></bean>
+
+	<bean id="Task_createDMJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	   <property name="targetObject" ref="SchedulerService"/>
+	   <property name="targetMethod" value="createDMJob"/> 
+	</bean>	
+		
+	<bean id="Task_createAFPJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	   <property name="targetObject" ref="SchedulerService"/>
+	   <property name="targetMethod" value="createAFPJob"/> 
+	</bean>		
+
+	<bean id="Task_changeMaterialInfo" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	   <property name="targetObject" ref="SchedulerService"/>
+	   <property name="targetMethod" value="changeMaterialInfo"/> 
+	</bean>
+	
+	<!-- 每隔15min  執行一次產生 AFP 工單   -->		
+	<bean id="cronTrigger_Task_createAFPJob"
+	   class="org.springframework.scheduling.quartz.CronTriggerBean">
+	   <property name="jobDetail" ref="Task_createAFPJob" />
+	   <property name="cronExpression" value="0 0,15,30,45 * * * ?" /> 
+	</bean>
+	
+		
+	<!-- 每天 00:05:00  執行一次開啟非AFP 工單  -->
+	<bean id="cronTrigger_Task_createDMJob" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	   <property name="jobDetail" ref="Task_createDMJob" />
+	   <property name="cronExpression" value="0 5 0 * * ?" /> 
+	</bean>	
+		
+		
+	<!-- 每天 00:30:00  執行一次變更物料   -->		
+	<bean id="cronTrigger_Task_changeMaterialInfo"
+	   class="org.springframework.scheduling.quartz.CronTriggerBean">
+	   <property name="jobDetail" ref="Task_changeMaterialInfo" />
+	   <property name="cronExpression" value="0 30 0 * * ?" /> 
+	</bean>		
+	   
+	<bean autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">   
+	        <property name="triggers">   
+	            <list>    
+	                <ref local="cronTrigger_Task_createAFPJob" />
+					<ref local="cronTrigger_Task_createDMJob" />
+					<ref local="cronTrigger_Task_changeMaterialInfo" />
+	            </list>   
+	        </property>
+	</bean>  
+
+<!-- 
+<bean id="myDataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource" destroy-method="close"> 
+         <property name="driver"> 
+             <value>com.mysql.jdbc.Driver</value> 
+         </property> 
+         <property name="driverUrl"> 
+             <value>jdbc:mysql://host:3306/deal</value> 
+         </property> 
+         <property name="user"> 
+             <value>deal</value> 
+         </property> 
+         <property name="password">             
+         	<value>1qazxsw2</value> 
+         </property> 
+         <property name="alias"> 
+             <value>mysql</value> 
+         </property> 
+         <property name="prototypeCount"> 
+             <value>5</value> 
+         </property> 
+         <property name="maximumConnectionCount"> 
+             <value>100</value> 
+         </property> 
+         <property name="minimumConnectionCount"> 
+             <value>2</value> 
+         </property> 
+         <property name="houseKeepingTestSql"> 
+             <value>SELECT CURRENT_DATE</value> 
+          </property>            
+         <property name="testBeforeUse"> 
+             <value>true</value> 
+         </property> 
+         <property name="testAfterUse"> 
+             <value>true</value> 
+         </property> 
+         <property name="trace"> 
+             <value>true</value> 
+         </property> 
+    </bean>
+-->
+    
+  <bean id="valueListHandler" singleton="true"
+        class="net.mlw.vlh.DefaultValueListHandlerImpl">
+    <property name="config.adapters">
+      <map>
+      
+
+        
+              
+<entry key="employeeList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>emp_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select e.emp_no, e.user_id , e.c_name, e.e_name,  c.code_value_tw dept, e.title, e.ext, e.h_tel, e.enabled
+	from employee e
+  	left outer join code c on e.code_dept = c.id 
+	where 1=1  
+	/~emp_no:  and e.emp_no = '[emp_no]' ~/	  
+	/~e_name:  and ( e.user_id like '%[e_name]%' or e.e_name like '%[e_name]%' )~/
+	/~c_name:  and ( e.c_name like '%[c_name]%' )~/  
+	/~enabled:  and e.enabled = [enabled] ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection]~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>      
+        
+        
+        
+<entry key="codeList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>50</value></property>
+            <property name="defaultSortColumn"><value>code_type_name</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select c.id, c.code_type_name, c.code_type_name_tw, c.code_value_tw, c.code_value_en, c.code_value_cn, c.orderby_id, c.is_hidden
+	from code c
+
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection]~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>       
+
+<entry key="codeList_CS">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>50</value></property>
+            <property name="defaultSortColumn"><value>code_type_name</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+                  
+	select c.id, c.code_type_name, c.code_type_name_tw, c.code_value_tw, c.code_value_en, c.code_value_cn, c.orderby_id, c.is_hidden
+	from code c
+	where c.code_type_name in ('JOB_CODE_TYPE','LG_MAIL_CATEGORY','LG_MAIL_TO_AREA','LG_MAIL_TO_POSTOFFICE','LG_TYPE') 	
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection]~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>    
+
+<entry key="amexList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>50</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+                  
+	select a.id, a.country, a.job_code_no, a.afp_name, a.macreport, a.speaker, a.special, a.typefile, a.aeb_type
+	from amex a
+	where 1=1 
+	/~id:  and a.id = [id] ~/		
+	/~afp_name:  and a.afp_name = '[afp_name]' ~/	 	
+	/~country:  and a.country = '[country]' ~/	  
+	/~job_code_no:  and a.job_code_no like '[job_code_no]%' ~/	 
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>       
+
+
+<entry key="syslogList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>50</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="defaultSortDirection"><value>desc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select s.id , s.log_type, s.subject, s.message_body, s.is_exception, s.create_date
+	from sys_log s
+	where 1=1 
+	/~id:  and s.id = [id] ~/	
+	/~log_type:  and s.log_type = '[log_type]' ~/		
+	/~is_exception:  and s.is_exception = [is_exception] ~/	 	
+	/~logDateBegin:  and convert(date, create_date, 120)  between  convert(date, '[logDateBegin]', 120)  and  convert(date, '[logDateEnd]', 120)  ~/	  
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>  
+
+<entry key="customerList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>cust_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select c.cust_no,  c.easy_name, c.cust_name, e.user_id , c.emp_no, c.contace_p, c.tel_1, c.address1 
+	from customer c
+  	left outer join employee e on c.EMP_NO = e.EMP_NO
+	where 1=1
+	/~cust_no:  and c.cust_no = '[cust_no]' ~/	  
+	/~easy_name:  and ( c.easy_name like '%[easy_name]%' ) ~/  
+	/~emp_no:  and c.emp_no = [emp_no] ~/
+	/~user_id:  and e.user_id like '%[user_id]%' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>         
+
+<entry key="lpinfoList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>lp_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+                  
+	select l.lp_no, l.idf_cust_no , l.prodmemo, c1.code_value_tw printer ,  l.code_printer, c2.code_value_tw print_type , l.code_print_type, l.pcode1, l.pcode2, l.pcode3, l.pcode4
+	from lpinfo l
+	left join  code c1 on l.code_printer = c1.id
+	left join  code c2 on l.code_print_type = c2.id
+	where 1=1  
+	/~lp_no:  and l.lp_no like '%[lp_no]%' ~/
+	/~idf_cust_no:  and l.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+          
+<entry key="mpinfoList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>mp_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+                  
+	select m.mp_no, m.idf_cust_no , m.prodmemo, m.print_code, m.select_fg, m.zip_fg, m.stamp_set_fg
+	from mpinfo m
+	where 1=1  
+	/~mp_no:  and m.mp_no like '%[mp_no]%' ~/	  
+	/~idf_cust_no:  and m.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+<entry key="psinfoList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>ps_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select p.ps_no, p.idf_cust_no , p.prodmemo, p.zip_fg, p.code_ps_type, c.code_value_tw
+	from psinfo p
+	left join  code c on p.code_ps_type = c.id
+	where 1=1
+	/~ps_no:  and p.ps_no like '%[ps_no]%' ~/	  
+	/~idf_cust_no:  and p.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+<entry key="lginfoList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>lg_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select l.lg_no, idf_cust_no, l.prog_nm, c1.code_value_tw lp_type, c2.code_value_tw mail_category, c3.code_value_tw mail_to_postoffic, l.mail_to_area_display, l.p_list
+	from lginfo l
+	left outer join  code c1 on c1.id = l.code_lg_type 
+	left outer join  code c2 on c2.id = l.code_mail_category
+	left outer join  code c3 on c3.id = l.code_mail_to_postoffice
+	where  1=1
+	/~lg_no:  and l.lg_no like '%[lg_no]%' ~/	  
+	/~idf_cust_no:  and l.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+
+<entry key="lcinfoList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>lc_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select l.lc_no, l.idf_cust_no,l.prog_nm, l.p_list
+	from lcinfo l
+	where 1=1
+	/~lc_no:  and l.lc_no like '%[lc_no]%' ~/	  
+	/~idf_cust_no:  and l.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+
+          
+<entry key="returninfoList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>return_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select r.return_no, r.idf_cust_no , r.user_name, r.user_company, r.return_address, r.user_tel
+	from returninfo r
+	where 1=1 
+	/~return_no:  and r.return_no like '%[return_no]%' ~/	  
+	/~idf_cust_no:  and r.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+<entry key="jobcodeList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_code_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select  j.job_code_no, j.idf_cust_no, j.prog_nm, j.job_code_id, j.is_lp, j.mp_dm_ps, j.is_lg, j.idf_lp_no1, j.idf_mp_no1, j.idf_ps_no, j.idf_lg_no, j.idf_lc_no, j.filename
+	from job_code j
+	where 1=1
+	/~job_code_no:  and j.job_code_no like '[job_code_no]%' ~/	  
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+          
+          
+<entry key="jobbagList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_bag_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select  j.job_bag_no, j.idf_cust_no, j.prog_nm, c2.code_value_tw job_bag_status, j.cycle_date, j.receive_date,  j.accounts, j.pages, j.sheets, j.is_damage,j.has_damage, j.afp_name
+	from job_bag j
+    left outer join  code c2 on c2.CODE_KEY = j.JOB_BAG_STATUS	
+	where 1=1
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~job_code_no:  and j.idf_job_code_no = '[job_code_no]%' ~/	  	
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/
+	/~receive_date:  and convert(char(11), j.receive_date , 120) = '[receive_date]' ~/
+	/~has_damage:  and   [has_damage] ~/			
+	/~is_damage:  and   [is_damage] ~/
+	/~is_deleted:  and  [is_deleted] ~/	
+	/~is_convert_result: and   [is_convert_result] ~/				
+	/~job_bag_status:  and j.job_bag_status in ( [job_bag_status] ) ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+
+<entry key="jobbagList_OP">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_bag_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select  j.job_bag_no, j.idf_cust_no, j.prog_nm, c1.code_value_tw job_code_type,c2.code_value_tw job_bag_status, j.cycle_date, j.splite_count, j.dead_time ,  j.accounts, j.pages, j.sheets, j.is_damage,j.has_damage, j.is_deleted , j.createByCycle create_by_cycle, j.afp_name
+	from job_bag j
+    left outer join  code c1 on c1.id = j.code_job_code_type
+    left outer join  code c2 on c2.CODE_KEY = j.JOB_BAG_STATUS
+	where 1=1
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/
+	/~receive_date:  and convert(char(11), j.receive_date , 120) = '[receive_date]' ~/		
+	/~has_damage:  and   [has_damage] ~/		
+	/~is_damage:  and   [is_damage] ~/
+	/~is_deleted:  and  [is_deleted] ~/	
+	/~is_convert_result: and   [is_convert_result] ~/		
+	/~createByCycle: and   [createByCycle] ~/			
+	/~job_bag_status:  and j.job_bag_status in ( [job_bag_status] ) ~/
+	/~code_job_code_type:  and j.code_job_code_type= [code_job_code_type] ~/	
+	/~dead_time:  and j.dead_time= '[dead_time]' ~/		
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+<entry key="jobbagList_LG">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_bag_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+            <!-- Thor modified 10/20 -->
+              <value>
+                  <![CDATA[
+	select  j.job_bag_no, j.idf_cust_no, j.prog_nm, c1.code_value_tw lg_type ,c2.code_value_tw job_bag_status ,c4.code_value_tw mail_cateogry ,c3.code_value_tw mail_to_postoffice , j.cycle_date, j.splite_count, j.dead_line ,  j.accounts, j.is_deleted , j.completed_date
+	from job_bag j
+    left outer join  code c1 on c1.id = j.code_lg_type
+    left outer join  code c2 on c2.code_key = j.job_bag_status
+    left outer join  code c3 on c3.id = j.code_mail_to_postoffice    
+    left outer join  code c4 on c4.id = j.code_mail_category
+	where j.dispatch_type ='MAIL'
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/
+	/~receive_date:  and convert(char(11), j.receive_date , 120) = '[receive_date]' ~/		
+	/~has_damage:  and   [has_damage] ~/
+	/~is_damage:  and   [is_damage] ~/
+	/~is_deleted:  and  [is_deleted] ~/	
+	/~is_convert_result: and   [is_convert_result] ~/				
+	/~job_bag_status:  and j.job_bag_status in ( [job_bag_status] ) ~/
+	/~code_lg_type:  and j.code_lg_type= [code_lg_type] ~/	
+	/~code_mail_category:  and j.code_mail_category= [code_mail_category] ~/	
+	/~code_mail_to_postoffice:  and j.code_mail_to_postoffice= [code_mail_to_postoffice] ~/		
+	/~orderColumns: ORDER BY [orderColumns]  ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+<entry key="lgformList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select l.id, l.lg_title, l.mail_category, l.job_bag_no, l.prog_nm,l.dispatch_date, l.mail_to_area, l.lg_type, l.qty,  l.price  ,l.weight
+	from lgform l 
+	where 1=1 
+	/~statement_no: and l.statement_no = [statement_no] ~/	  
+	/~idf_cust_no:  and l.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+<entry key="jobbagList_Return_LG">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_bag_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select  j.job_bag_no, j.idf_cust_no, j.prog_nm, c.code_value_tw job_bag_status , j.cycle_date,  j.dead_line ,  j.accounts, r.return_no, r.user_name , r.user_company, r.return_address, r.user_tel
+	from job_bag j
+    left outer join returninfo r on j.idf_return_no = r.return_no
+    left outer join  code c on c.code_key = j.job_bag_status
+  	where j.DISPATCH_type ='RETURN_CUSTOMER'
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/			
+	/~job_bag_status:  and j.job_bag_status in( [job_bag_status] ) ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+
+<entry key="jobbagStatus_Summary">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select (case j.job_bag_status when 'INIT' then 'INITNONCYCLE' end) job_bag_status , count(*) count
+	from job_bag j
+	where  (j.createByCycle = 0  or j.createByCycle is null) and j.JOB_BAG_STATUS = 'INIT' 
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/		
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/
+	/~receive_date:  and convert(char(11), j.receive_date , 120) = '[receive_date]' ~/		
+	group by j.job_bag_status
+
+    union
+
+    select j.job_bag_status job_bag_status, count(*) count
+	from job_bag j
+	where j.createByCycle = 1 and j.JOB_BAG_STATUS = 'INIT' 
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/		
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/
+	/~receive_date:  and convert(char(11), j.receive_date , 120) = '[receive_date]' ~/		
+	group by j.job_bag_status	
+	
+    union
+
+    select j.job_bag_status job_bag_status, count(*) count
+	from job_bag j
+	where  j.JOB_BAG_STATUS != 'INIT' 
+	/~job_bag_no:  and j.job_bag_no like '[job_bag_no]%' ~/
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/		
+	/~cycle_date:  and convert(char(11), j.cycle_date , 120) = '[cycle_date]' ~/
+	/~receive_date:  and convert(char(11), j.receive_date , 120) = '[receive_date]' ~/		
+	group by j.job_bag_status		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+          
+          
+          
+          
+<entry key="acctChargeItemList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	  select pi.id , pi.item_type, pi.item_name, pi.item_name_tw, codetitle.code_value_tw title, codesubtitle.code_value_tw sub_title, pi.ep1_account_code
+	  from acct_charge_item pi
+	  left outer join code codetitle  on pi.title = codetitle.id
+	  left outer join code codesubtitle  on pi.sub_title = codesubtitle.id  
+	  where 1=1
+	  /~item_name:  and pi.item_name like '%[item_name]%' ~/	
+	  /~item_name_tw:  and pi.item_name_tw like '%[item_name_tw]%' ~/	     
+	  /~item_type:  and pi.item_type = '[item_type]' ~/	  	  
+	  /~title:  and pi.title = [title] ~/	  
+	  /~sub_title:  and pi.sub_title = [sub_title] ~/
+	  /~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+          
+          
+<entry key="acctCustomerContractList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>idf_cust_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select ac.idf_cust_no, ac.contact_date_begin, ac.contact_date_end
+	from acct_customer_contract ac
+	where 1=1 
+	/~idf_cust_no:  and ac.idf_cust_no = '[idf_cust_no]' ~/		
+	/~contact_date_begin:  and convert(date, ac.contact_date_begin, 120)  between  convert(date, '[contact_date_begin]', 120)  and  convert(date, '[contact_date_end]', 120)  ~/	
+	group by ac.idf_cust_no, ac.contact_date_begin, ac.contact_date_end	
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+
+<entry key="acctJobCodeChargeItemList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_code_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select a.idf_cust_no, j.job_code_no, j.prog_nm, j.cost_center
+	from job_code j
+	left outer join  acct_job_code_charge_item a on a.idf_job_code_no = j.job_code_no
+	where 1=1 
+	/~job_code_no:  and j.job_code_no like '[job_code_no]%' ~/	  
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/	
+  	group by a.idf_cust_no,j.job_code_no, j.prog_nm, j.cost_center	
+	/~cust_no:  and ac.idf_cust_no = '[cust_no]' ~/		
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+				]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+
+
+<entry key="customerReceiverList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>receiver_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select c.receiver_no, c.idf_cust_no, c.receiver, c.invoice_title, c.pin, c.address, c.tel
+	from dbo.customer_receiver c
+	where 1=1 
+	/~receiver_no:  and c.receiver_no like '%[receiver_no]%' ~/	  
+	/~idf_cust_no:  and c.idf_cust_no = '[idf_cust_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>
+          
+          
+          
+          
+<entry key="sectionMappingList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_code_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select  m.id, j.idf_cust_no, j.job_code_no , m.section, j.cost_center, j.prog_nm , r.id receiver_id
+	from job_code j 
+	left outer join acct_job_code_charge_item i  on i.idf_job_code_no = j.job_code_no  
+	left outer join dbo.acct_section_job_code_mapping m on m.idf_job_code_no = j.job_code_no
+	left outer join dbo.acct_section_receiver_mapping r on j.idf_cust_no = r.idf_cust_no and m.section = r.section
+	where 1=1 
+	/~job_code_no:  and j.job_code_no like '[job_code_no]%' ~/	  
+	/~idf_cust_no:  and j.idf_cust_no = '[idf_cust_no]' ~/
+	/~section:  and m.section = '[section]' ~/	
+	group by  m.id, j.idf_cust_no,j.job_code_no, m.section, j.cost_center, j.prog_nm , r.id 
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry>          
+
+
+
+<entry key="acctDebitNoteList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>cust_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select ad.debit_no, ad.cust_no, ad.section, ad.des_sdt, ad.des_edt, ad.cycle_sdt, ad.cycle_edt, ad.processdt, ad.processdt2, ad.processdt3, ad.ep1, ad.ep1_confirm
+	from dbo.acct_dno ad
+	where 1=1 
+	/~cust_no:  and ad.cust_no = '[cust_no]' ~/	  
+	/~debit_no:  and ad.debit_no = '[debit_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+<entry key="acctDebitNoteStep2List">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>job_bag_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select distinct  s.idf_cust_no, s.idf_job_bag_no job_bag_no, j.cycle_date, j.completed_date, j.accounts, j.pages
+	from acct_sum1 s
+  	left outer join  job_bag j on s.idf_job_bag_no = j.job_bag_no 
+	where 1=1 
+	/~debit_no:  and s.idf_debit_no = '[debit_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+
+<entry key="acctDebitNoteStep5List">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select s2.id, item.item_name, item.item_name_tw, s2.unit_price, s2.sum_qty, s2.unit_price * s2.sum_qty sub_sum, s2.cost_center
+	from dbo.acct_sum2 s2, acct_charge_item item
+	where 
+	s2.idf_acct_charge_item = item.id 
+	and item.item_type='non_job_bag' 
+	/~debit_no:  and s2.idf_debit_no = '[debit_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+
+<entry key="acctDebitNoteStep6_1List">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>cost_center</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+                  
+			select ai.id, s2.cost_center,  cast(ROUND(sum( s2.total ),0) as int )  expense , ai.invoiceno, ai.dept, ai.tax, ai.invoicetyp
+			from dbo.acct_sum2 s2
+			left outer join  dbo.acct_invoice ai on s2.idf_debit_no = ai.idf_debit_no and s2.cost_center = ai.cost_center
+			/~debit_no:  where s2.idf_debit_no = '[debit_no]' ~/
+			group by ai.id, s2.cost_center,  ai.invoiceno, ai.dept, ai.tax, ai.invoicetyp
+			union 
+			select distinct  ai.id, ai.cost_center, ai.expense expense , ai.invoiceno, ai.dept, ai.tax, ai.invoicetyp
+			from dbo.acct_invoice ai
+			where 
+			/~debit_no:  ai.idf_debit_no = '[debit_no]' ~/			
+			and ai.cost_center not in (select distinct cost_center from dbo.acct_sum2
+			/~debit_no:  where idf_debit_no = '[debit_no]' ~/
+			)
+			/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/	
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+
+
+
+
+<entry key="acctDebitNoteStep8List">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select s3.id, s3.title, s3.subtitle, s3.sum_qty, s3.unit_price, s3.total, s3.purpose
+	from dbo.acct_sum3 s3 
+	where 1=1 and s3.purpose in ( '','DISPLAY_ONLY' ) 
+	/~debit_no:  and s3.idf_debit_no = '[debit_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+<entry key="acctFubonReportList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>debit_no</value></property>
+            <property name="defaultSortDirection"><value>asc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select ad.debit_no, ad.cust_no, ad.section, ad.des_sdt, ad.des_edt, ad.cycle_sdt, ad.cycle_edt, ad.processdt, ad.processdt2, ad.processdt3, ad.ep1, ad.ep1_confirm
+	from dbo.acct_dno ad
+	where  ad.cust_no = 'FB'  
+	/~debit_no:  and ad.debit_no = '[debit_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+<entry key="historyReportList">
+            <bean class="net.mlw.vlh.adapter.jdbc.dynclass.DefaultDynclassAdapter">
+            <property name="dataSource"><ref bean="myDataSource"/></property>
+            <property name="defaultNumberPerPage"><value>10</value></property>
+            <property name="defaultSortColumn"><value>id</value></property>
+            <property name="defaultSortDirection"><value>desc</value></property>
+            <property name="lowerCase"><value>true</value></property>
+            <property name="sql">
+              <value>
+                  <![CDATA[
+	select hr.id, hr.report_name, hr.pdf_path, hr.emp_no, hr.create_date
+	from history_report hr
+	where 1=1 
+	/~emp_no:  and hr.emp_no = '[emp_no]' ~/
+	/~sortColumn: ORDER BY [sortColumn] [sortDirection] ~/
+		
+		]]>
+              </value>
+            </property>
+            </bean>
+</entry> 
+
+
+
+      </map>
+    </property>
+  </bean>
+</beans>

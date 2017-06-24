@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="userAuthorityReport" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="userStatus" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ENABLED = 1"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select USER_ID,  ENABLED,  e.ROLE1S, e.ROLE1C, e.ROLE2S, e.ROLE2C,  e.ROLE3S, e.ROLE3C, e.ROLE4S, e.ROLE4C, e.ROLE5S, e.ROLE5C, e.ROLE6M
+from employee e
+where USER_ID is not null
+and $P!{userStatus}
+order by [USER_ID]]]>
+	</queryString>
+	<field name="USER_ID" class="java.lang.String"/>
+	<field name="ENABLED" class="java.lang.Boolean"/>
+	<field name="ROLE1S" class="java.lang.Boolean"/>
+	<field name="ROLE1C" class="java.lang.Boolean"/>
+	<field name="ROLE2S" class="java.lang.Boolean"/>
+	<field name="ROLE2C" class="java.lang.Boolean"/>
+	<field name="ROLE3S" class="java.lang.Boolean"/>
+	<field name="ROLE3C" class="java.lang.Boolean"/>
+	<field name="ROLE4S" class="java.lang.Boolean"/>
+	<field name="ROLE4C" class="java.lang.Boolean"/>
+	<field name="ROLE5S" class="java.lang.Boolean"/>
+	<field name="ROLE5C" class="java.lang.Boolean"/>
+	<field name="ROLE6M" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="326" y="0" width="172" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="14"/>
+				</textElement>
+				<text><![CDATA[使用者代號及權限一覽表]]></text>
+			</staticText>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="702" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="750" y="20" width="24" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="774" y="20" width="28" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["/" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="31" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[USER_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="0" width="50" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[ENABLED]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Production
+Controller]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Production
+Staff (MP)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Production
+Staff (LP)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Dispatch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Project
+Coodinator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="592" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Accounting]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Engineer
+Team]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="662" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[IT System
+Maintenance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="732" y="0" width="70" height="31"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{USER_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="50" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ENABLED}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE1S}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE1C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE2C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE2S}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE4S}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="592" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE4C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE5C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="662" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE5S}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="732" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{ROLE6M}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

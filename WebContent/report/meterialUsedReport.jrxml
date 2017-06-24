@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="meterialUsedReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select c.CUST_NAME, jc.JOB_CODE_NO, jc.PROG_NM, j.idf_LP_NO1, sum(j.PAGES) pages ,  j.idf_MP_NO1, sum(j.ACCOUNTS) accounts , convert(char(5), j.CYCLE_DATE, 101)  cycleDate
+FROM job_bag j, job_code jc, lpinfo lp, mpinfo mp, customer c
+where j.idf_JOB_CODE_NO = jc.JOB_CODE_NO
+and j.idf_CUST_NO = c.CUST_NO
+and j.idf_LP_NO1 = lp.LP_NO
+and j.idf_MP_NO1 = mp.MP_NO
+and (j.IS_DELETED = 0 or j.IS_DELETED is null)
+group by c.CUST_NAME,jc.JOB_CODE_NO, jc.PROG_NM, j.idf_LP_NO1,j.idf_MP_NO1, convert(char(5), j.CYCLE_DATE, 101)]]>
+	</queryString>
+	<field name="CUST_NAME" class="java.lang.String"/>
+	<field name="JOB_CODE_NO" class="java.lang.String"/>
+	<field name="PROG_NM" class="java.lang.String"/>
+	<field name="idf_LP_NO1" class="java.lang.String"/>
+	<field name="pages" class="java.lang.Integer"/>
+	<field name="idf_MP_NO1" class="java.lang.String"/>
+	<field name="accounts" class="java.lang.Integer"/>
+	<field name="cycleDate" class="java.lang.String"/>
+	<variable name="pages_1" class="java.lang.Integer" resetType="Group" resetGroup="jobCodeGroup" calculation="Sum">
+		<variableExpression><![CDATA[$F{pages}]]></variableExpression>
+	</variable>
+	<variable name="pages_2" class="java.lang.Integer" resetType="Group" resetGroup="jobCodeGroup" calculation="Sum">
+		<variableExpression><![CDATA[$F{pages}]]></variableExpression>
+	</variable>
+	<group name="jobCodeGroup">
+		<groupExpression><![CDATA[$F{JOB_CODE_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="24">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="3" width="100" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_CODE_NO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="26">
+				<textField pattern="#,##0;-#,##0">
+					<reportElement x="505" y="0" width="50" height="20"/>
+					<textElement textAlignment="Right">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{pages_2}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="300" y="0" width="255" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="337" y="1" width="44" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<text><![CDATA[合計:]]></text>
+				</staticText>
+				<textField pattern="#,##0;-#,##0">
+					<reportElement x="389" y="1" width="50" height="20"/>
+					<textElement textAlignment="Right">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{pages_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="289" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[各種用料數量一覽表]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="189" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CUST_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="29" width="267" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[工作名稱]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="29" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[工作單代號
+日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="29" width="50" height="30"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[紙張代號
+Print Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="29" width="50" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[pages]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="29" width="50" height="30"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[信封代號
+Envelop Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="29" width="50" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[accounts]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="56" width="555" height="3"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cycleDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="267" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PROG_NM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="0" width="50" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{idf_LP_NO1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="387" y="1" width="50" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{pages}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="1" width="50" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{idf_MP_NO1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="505" y="0" width="50" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{accounts}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

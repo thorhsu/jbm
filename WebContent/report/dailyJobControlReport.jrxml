@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dailyJobStatisticsReport" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CC00CC"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CC00CC"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CC00CC"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#CC00CC"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="queryDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1=1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="queryDate_Display" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="otherCriteria" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1 = 1"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select j.JOB_BAG_NO, j.PROG_NM, j.ACCOUNTS, j.PAGES, j.RECEIVE_DATE, j.IS_LP, j.MP_DM_PS, j.DEAD_LINE, j.IS_LG, j.IS_DAMAGE, j.DAMAGE_COUNT,
+js.LP_ACCOUNT_SEQ_BEGIN,  js.LP_ACCOUNT_SEQ_END, js.LP_PAGES_SEQ_BEGIN, js.LP_PAGES_SEQ_END, js.JOB_BAG_SPLITE_NO,  js.LP_COMPLETED_USER , js.LP_MACHINE_NAME ,  js.LP_COMPLETED_DATE_BY_USER ,  js.MP_COMPLETED_USER , js.MP_MACHINE_NAME ,  js.MP_COMPLETED_DATE_BY_USER , js.LG_COMPLETED_USER, js.LG_COMPLETED_DATE_BY_USER,
+j.AFP_NAME
+from job_bag j, job_bag_splite js
+where j.JOB_BAG_NO = js.IDF_JOB_BAG_NO
+and $P!{queryDate} and j.accounts > 0 and $P!{otherCriteria}
+and (j.IS_DELETED = 0 or j.IS_DELETED is null)
+order by   j.JOB_BAG_NO, js.LP_ACCOUNT_SEQ_BEGIN]]>
+	</queryString>
+	<field name="JOB_BAG_NO" class="java.lang.String"/>
+	<field name="PROG_NM" class="java.lang.String"/>
+	<field name="ACCOUNTS" class="java.lang.Integer"/>
+	<field name="PAGES" class="java.lang.Integer"/>
+	<field name="RECEIVE_DATE" class="java.sql.Timestamp"/>
+	<field name="IS_LP" class="java.lang.Boolean"/>
+	<field name="MP_DM_PS" class="java.lang.String"/>
+	<field name="DEAD_LINE" class="java.sql.Timestamp"/>
+	<field name="IS_LG" class="java.lang.Boolean"/>
+	<field name="IS_DAMAGE" class="java.lang.Boolean"/>
+	<field name="DAMAGE_COUNT" class="java.lang.Integer"/>
+	<field name="LP_ACCOUNT_SEQ_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_ACCOUNT_SEQ_END" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_BEGIN" class="java.lang.Integer"/>
+	<field name="LP_PAGES_SEQ_END" class="java.lang.Integer"/>
+	<field name="JOB_BAG_SPLITE_NO" class="java.lang.String"/>
+	<field name="LP_COMPLETED_USER" class="java.lang.String"/>
+	<field name="LP_MACHINE_NAME" class="java.lang.String"/>
+	<field name="LP_COMPLETED_DATE_BY_USER" class="java.sql.Timestamp"/>
+	<field name="MP_COMPLETED_USER" class="java.lang.String"/>
+	<field name="MP_MACHINE_NAME" class="java.lang.String"/>
+	<field name="MP_COMPLETED_DATE_BY_USER" class="java.sql.Timestamp"/>
+	<field name="LG_COMPLETED_USER" class="java.lang.String"/>
+	<field name="LG_COMPLETED_DATE_BY_USER" class="java.sql.Timestamp"/>
+	<field name="AFP_NAME" class="java.lang.String"/>
+	<variable name="batchNo" class="java.lang.String">
+		<variableExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}.substring( $F{JOB_BAG_SPLITE_NO}.length()-3, $F{JOB_BAG_SPLITE_NO}.length() )]]></variableExpression>
+	</variable>
+	<variable name="LP_ACCOUNT_SEQ_BEGIN_1" class="java.lang.Integer" resetType="Group" resetGroup="jobBagNo" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_ACCOUNT_SEQ_BEGIN}]]></variableExpression>
+	</variable>
+	<variable name="LP_ACCOUNT_SEQ_END_1" class="java.lang.Integer" resetType="Group" resetGroup="jobBagNo" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_ACCOUNT_SEQ_END}]]></variableExpression>
+	</variable>
+	<variable name="LP_PAGES_SEQ_END_1" class="java.lang.Integer" resetType="Group" resetGroup="jobBagNo" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_PAGES_SEQ_END}]]></variableExpression>
+	</variable>
+	<variable name="LP_PAGES_SEQ_END_2" class="java.lang.Integer" resetType="Group" resetGroup="jobBagNo" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_PAGES_SEQ_END}]]></variableExpression>
+	</variable>
+	<variable name="LP_PAGES_SEQ_BEGIN_1" class="java.lang.Integer" resetType="Group" resetGroup="jobBagNo" calculation="Sum">
+		<variableExpression><![CDATA[$F{LP_PAGES_SEQ_BEGIN}]]></variableExpression>
+	</variable>
+	<variable name="isLP" class="java.lang.String">
+		<variableExpression><![CDATA[($F{IS_LP})?(""):("N/A")]]></variableExpression>
+	</variable>
+	<variable name="isLG" class="java.lang.String">
+		<variableExpression><![CDATA[($F{IS_LG})?(""):("N/A")]]></variableExpression>
+	</variable>
+	<variable name="isMP" class="java.lang.String">
+		<variableExpression><![CDATA[($F{MP_DM_PS} == null || $F{MP_DM_PS}.equals( "" ))? "N/A" : ""]]></variableExpression>
+	</variable>
+	<group name="jobBagNo">
+		<groupExpression><![CDATA[$F{JOB_BAG_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<line>
+					<reportElement x="0" y="0" width="800" height="1"/>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="0" width="107" height="20"/>
+					<textElement>
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{JOB_BAG_NO}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="237" y="0" width="40" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$F{PAGES}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd/yyyy HH:mm" isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="278" y="0" width="90" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{RECEIVE_DATE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="462" y="0" width="95" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_DM_PS}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd/yyyy HH:mm" isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="557" y="0" width="99" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{DEAD_LINE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="746" y="0" width="24" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{IS_DAMAGE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="770" y="0" width="32" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$F{DAMAGE_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table_TH" mode="Transparent" x="196" y="0" width="41" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="微軟正黑體"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ACCOUNTS}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="0" width="89" height="20" isPrintInFirstWholeBand="true"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{AFP_NAME}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="jobBagSpliteNo">
+		<groupExpression><![CDATA[$F{JOB_BAG_SPLITE_NO}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="555" splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="332" y="0" width="135" height="26"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="18"/>
+				</textElement>
+				<text><![CDATA[每日生產管制表]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="26" width="149" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Daily Job Control Log for]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="746" y="20" width="24" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="770" y="20" width="28" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["/" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="702" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="389" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{queryDate_Display}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="368" y="0" width="90" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[LP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="0" width="95" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[MP/DM/PS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="107" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[工單代碼]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="0" width="89" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[AFP_檔名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="90" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[收檔日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="557" y="0" width="90" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[DeadLine D/T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="654" y="0" width="90" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Dispatch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="744" y="0" width="26" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Spoil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="768" y="0" width="34" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Spoil#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="0" width="40" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Accounts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="0" width="35" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Pages]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40">
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="277" y="0" width="40" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體" size="9"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_ACCOUNT_SEQ_BEGIN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="328" y="0" width="40" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="9"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_ACCOUNT_SEQ_END}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="368" y="20" width="94" height="20">
+					<printWhenExpression><![CDATA[$F{IS_LP}.equals( true ) && !($F{IS_LP}&&($F{LP_COMPLETED_USER}==null||$F{LP_COMPLETED_USER}.equals( "" )))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_COMPLETED_USER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy HH:mm" isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="462" y="0" width="95" height="20">
+					<printWhenExpression><![CDATA[!($F{MP_DM_PS}!=null && !$F{MP_DM_PS}.equals( "" ) &&$F{MP_COMPLETED_DATE_BY_USER} == null)&&$F{MP_DM_PS} != null && !$F{MP_DM_PS}.equals( "" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{MP_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="462" y="20" width="95" height="20">
+					<printWhenExpression><![CDATA[!($F{MP_DM_PS}!=null && !$F{MP_DM_PS}.equals( "" ) &&$F{MP_COMPLETED_DATE_BY_USER} == null)&&$F{MP_DM_PS} != null && !$F{MP_DM_PS}.equals( "" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_COMPLETED_USER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="585" y="20" width="71" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MP_MACHINE_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" mode="Transparent" x="317" y="0" width="11" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[---]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" stretchType="RelativeToBandHeight" mode="Transparent" x="196" y="0" width="41" height="40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{batchNo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="196" y="0" width="604" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="277" y="20" width="40" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="微軟正黑體" size="9"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_PAGES_SEQ_BEGIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" mode="Transparent" x="317" y="20" width="11" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[---]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="328" y="20" width="40" height="20"/>
+				<textElement>
+					<font fontName="微軟正黑體" size="9"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{LP_PAGES_SEQ_END}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" mode="Transparent" x="557" y="0" width="28" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[LP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" mode="Transparent" x="557" y="20" width="28" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[MP:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy HH:mm" isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="656" y="0" width="90" height="20">
+					<printWhenExpression><![CDATA[$F{IS_LG}&&!($F{IS_LG}&&($F{LG_COMPLETED_USER}==null||$F{LG_COMPLETED_USER}.equals( "" )))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LG_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="656" y="20" width="90" height="20">
+					<printWhenExpression><![CDATA[$F{IS_LG}&&!($F{IS_LG}&&($F{LG_COMPLETED_USER}==null||$F{LG_COMPLETED_USER}.equals( "" )))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{LG_COMPLETED_USER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" mode="Transparent" x="237" y="0" width="40" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Ant Seq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" mode="Transparent" x="237" y="20" width="40" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<text><![CDATA[Pgs Seq.]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy HH:mm" isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="368" y="0" width="94" height="20" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{IS_LP}.equals( true ) && !($F{IS_LP}&&($F{LP_COMPLETED_USER}==null||$F{LP_COMPLETED_USER}.equals( "" )))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{LP_COMPLETED_DATE_BY_USER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="0" y="1" width="196" height="39"/>
+				<textElement>
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PROG_NM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_TH" mode="Transparent" x="585" y="0" width="71" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{LP_MACHINE_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="2" width="94" height="38" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$F{MP_DM_PS} == null || $F{MP_DM_PS}.equals( "" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{isMP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="656" y="0" width="90" height="40" forecolor="#CC0000">
+					<printWhenExpression><![CDATA[$F{IS_LG}&&($F{LG_COMPLETED_USER}==null||$F{LG_COMPLETED_USER}.equals( "" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[尚未完成]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="656" y="2" width="90" height="38" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$F{IS_LG}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{isLG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="1" width="94" height="39" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$F{IS_LP}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{isLP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="369" y="0" width="94" height="40" forecolor="#CC0000">
+					<printWhenExpression><![CDATA[$F{IS_LP}&&($F{LP_COMPLETED_USER}==null||$F{LP_COMPLETED_USER}.equals( "" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[尚未完成]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="1" width="94" height="39" forecolor="#CC0000">
+					<printWhenExpression><![CDATA[$F{MP_DM_PS}!=null && !$F{MP_DM_PS}.equals( "" ) &&$F{MP_COMPLETED_DATE_BY_USER} == null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="微軟正黑體" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[尚未完成]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

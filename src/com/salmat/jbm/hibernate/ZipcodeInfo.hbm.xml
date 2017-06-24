@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.salmat.jbm.hibernate.ZipcodeInfo" table="zipcode_info" schema="dbo" catalog="jbm" lazy="false">
+        <id name="zipcodeInfoNo" type="integer">
+            <column name="ZIPCODE_INFO_NO" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="custNo" type="string">
+            <column name="CUST_NO" length="3" />
+        </property>
+        <property name="srcFilename" type="string">
+            <column name="SRC_FILENAME" length="50" />
+        </property>
+        <property name="zipcodeTotal" type="integer">
+            <column name="ZIPCODE_TOTAL" />
+        </property>
+        <property name="jobBagNo" type="string" >
+            <column name="JOB_BAG_NO" length="30" />
+        </property>
+        <property name="cycleDate" type="timestamp">
+            <column name="CYCLE_DATE" length="23" />
+        </property>
+        <property name="receiveDate" type="timestamp">
+            <column name="RECEIVE_DATE" length="23" />
+        </property>
+        <property name="afpFilename" type="string">
+            <column name="AFP_FILENAME" length="50" />
+        </property>
+        <property name="filePattern" type="string">
+            <column name="FILE_PATTERN" length="50" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CREATE_DATE" length="23" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="UPDATE_DATE" length="23" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UPDATE_USER" length="40" />
+        </property>
+        <property name="combinedNum" type="integer">
+            <column name="COMBINED_NUM" />
+        </property>
+        <property name="zipcodeFilename" type="string">
+            <column name="ZIPCODE_FILENAME" length="50" />
+        </property>
+        <property name="detailIsDelete" type="java.lang.Boolean">
+            <column name="DETAIL_IS_DELETED" />
+        </property>
+        <property name="deletedDate" type="timestamp">
+            <column name="DELETED_DATE" length="23" />
+        </property>
+        <property name="dispatchTime" type="string">
+            <column name="DISPATCH_TIME" length="3" />
+        </property>
+        <property name="dispatchKind" type="string">
+            <column name="DISPATCH_KIND" length="3" />
+        </property>
+    
+    </class>
+</hibernate-mapping>

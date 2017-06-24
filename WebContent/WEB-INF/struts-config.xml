@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <form-beans >
+		<form-bean
+            name="loginForm"
+            type="org.apache.struts.action.DynaActionForm">
+            <form-property
+                name="userId"
+                type="java.lang.String" />
+            <form-property
+                name="password"
+                type="java.lang.String" />
+            <form-property
+                name="fid"
+                type="java.lang.String" />
+
+			<form-property
+                name="language"
+                type="java.lang.String" />
+        </form-bean>
+          
+
+		<form-bean name="employeeForm" type="com.salmat.jbm.struts.form.EmployeeForm" />
+		<form-bean name="codeForm" type="com.salmat.jbm.struts.form.CodeForm" />
+		<form-bean name="amexForm" type="com.salmat.jbm.struts.form.AmexForm" />	
+		<form-bean name="syslogForm" type="com.salmat.jbm.struts.form.SyslogForm" />			
+		<form-bean name="customerForm" type="com.salmat.jbm.struts.form.CustomerForm" />
+		<form-bean name="lpinfoForm" type="com.salmat.jbm.struts.form.LPInfoForm" />
+		<form-bean name="mpinfoForm" type="com.salmat.jbm.struts.form.MPInfoForm" />
+		<form-bean name="psinfoForm" type="com.salmat.jbm.struts.form.PSInfoForm" />
+		<form-bean name="lginfoForm" type="com.salmat.jbm.struts.form.LGInfoForm" />
+		<form-bean name="lcinfoForm" type="com.salmat.jbm.struts.form.LCInfoForm" />
+		<form-bean name="returninfoForm" type="com.salmat.jbm.struts.form.ReturnInfoForm" />
+		<form-bean name="jobCodeForm" type="com.salmat.jbm.struts.form.JobCodeForm" />
+		<form-bean name="jobBagForm" type="com.salmat.jbm.struts.form.JobBagForm" />
+		<form-bean name="completedJobForm" type="com.salmat.jbm.struts.form.CompletedJobForm" />
+		<form-bean name="lgformForm" type="com.salmat.jbm.struts.form.LGFormForm" />
+		<form-bean name="reportForm" type="com.salmat.jbm.struts.form.ReportForm" />		
+        <form-bean name="lgPriceForm" type="com.salmat.jbm.struts.form.LgPriceForm" />
+		<form-bean name="acctChargeItemForm" type="com.salmat.jbm.struts.form.AcctChargeItemForm" />
+		<form-bean name="acctCustomerContractForm" type="com.salmat.jbm.struts.form.AcctCustomerContractForm" />
+		<form-bean name="acctJobCodeChargeItemForm" type="com.salmat.jbm.struts.form.AcctJobCodeChargeItemForm" />
+		<form-bean name="customerReceiverForm" type="com.salmat.jbm.struts.form.CustomerReceiverForm" />
+		<form-bean name="sectionMappingForm" type="com.salmat.jbm.struts.form.SectionMappingForm" />
+		<form-bean name="acctDebitNoteForm" type="com.salmat.jbm.struts.form.AcctDebitNoteForm" />
+		<form-bean name="holidayForm" type="com.salmat.jbm.struts.form.HolidayForm" />
+		<form-bean name="customerExtendsForm" type="com.salmat.jbm.struts.form.CustomerExtendsForm" />
+		<form-bean name="acctItemFxForm" type="com.salmat.jbm.struts.form.AcctItemFxForm" />		
+		<form-bean name="zipcodeForm" type="com.salmat.jbm.struts.form.ZipcodeForm" />
+  </form-beans>
+   <global-exceptions>
+	    <exception
+	      key="error.global.mesage"
+	      type="java.lang.Exception"
+	      path="/errorPage.jsp" />
+	</global-exceptions>
+
+    <global-forwards>
+   
+        <forward
+            name="homepage"
+            path="/"
+            redirect="true" />
+            
+        <forward
+            name="global_redirect"
+            path="/Redirect.jsp" 
+             />
+             
+                         
+        <forward
+            name="loginpage"
+            path="/login.do"
+            redirect="true" />            
+            
+
+
+        <forward
+            name="pdfDownload"
+            path=".pdfDownload" />
+            
+        <forward
+            name="message"
+            path=".message" />
+        <forward
+            name="message_cs"
+            path=".message_cs" />
+                                    
+        <forward
+            name="login_success"
+            path="/jobbagStatus.do?fid=summary" />
+        
+        <forward
+            name="login_cs_success"
+            path=".generalLayout_cs" />
+
+        <forward
+            name="jsonMessage"
+            path="/JsonMessage.jsp" />
+        <forward
+            name="jsonObject"
+            path="/JsonObject.jsp" />            
+            
+			
+
+
+    </global-forwards>
+  <action-mappings >
+         <!-- 客戶需求單系統 -->
+         <!-- 客戶合約 -->
+         <action
+            input=".CustomerExtendsEdit"
+            name="customerExtendsForm"
+            parameter="fid"
+            path="/customerExtends"
+            scope="request"
+            type="com.salmat.jbm.struts.action.CustomerExtendsAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".CustomerExtendsList" />
+            <forward name="editInit" path=".CustomerExtendsEdit" />            
+        </action>
+        <action
+            name="acctItemFxForm"
+            parameter="fid"
+            path="/acctItemFx"
+            scope="request"
+            type="com.salmat.jbm.struts.action.AcctItemFxAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".AcctItemFxList" />
+            <forward name="editInit" path=".AcctItemFxEdit" />            
+        </action>
+         
+        <!-- END客戶需求單系統 -->
+        
+<!-- ############################################################################################################ -->                
+                
+        <!-- JBM -->
+		<action
+            scope="request"
+            parameter="fid"
+            name="loginForm"
+            path="/login"
+            type="com.salmat.jbm.struts.action.LoginAction">
+            <forward name="login" path="/Login.jsp" />
+            <forward name="change_password" path="/ChangePassword.jsp" />                        
+        </action>
+
+
+        
+        <!-- employee管理 -->
+        <action
+            name="employeeForm"
+            parameter="fid"
+            path="/employee"
+            scope="request"
+            type="com.salmat.jbm.struts.action.EmployeeAction">          
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />
+            <forward name="list" path=".EmployeeList" />
+            <forward name="editInit" path=".EmployeeEdit" />
+            
+        </action>
+        
+        <!-- code管理 -->
+        <action
+            name="codeForm"
+            parameter="fid"
+            path="/code"
+            scope="request"
+            type="com.salmat.jbm.struts.action.CodeAction">   
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />       
+            <forward name="list" path=".CodeList" />
+            <forward name="editInit" path=".CodeEdit" />
+        </action>      
+        
+		<!-- amex管理 -->
+        <action
+            name="amexForm"
+            parameter="fid"
+            path="/amex"
+            scope="request"
+            type="com.salmat.jbm.struts.action.AmexAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".AmexList" />
+            <forward name="editInit" path=".AmexEdit" />
+        </action> 
+        
+		<!-- sys_log管理 -->
+        <action
+            name="syslogForm"
+            parameter="fid"
+            path="/syslog"
+            scope="session"
+            type="com.salmat.jbm.struts.action.SyslogAction">     
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />     
+            <forward name="list" path=".SyslogList" />
+        </action>
+        
+        <!-- customer管理 -->
+        <action
+            name="customerForm"
+            parameter="fid"
+            path="/customer"
+            scope="request"
+            type="com.salmat.jbm.struts.action.CustomerAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".CustomerList" />
+            <forward name="editInit" path=".CustomerEdit" />            
+        </action>
+
+        <!-- LPInfo管理 -->
+        <action
+            name="lpinfoForm"
+            parameter="fid"
+            path="/lpinfo"
+            scope="request"
+            type="com.salmat.jbm.struts.action.LPInfoAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".LPInfoList" />
+            <forward name="editInit" path=".LPInfoEdit" />
+        </action>
+                
+        <!-- MPInfo管理 -->
+        <action
+            name="mpinfoForm"
+            parameter="fid"
+            path="/mpinfo"
+            scope="request"
+            type="com.salmat.jbm.struts.action.MPInfoAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".MPInfoList" />
+            <forward name="editInit" path=".MPInfoEdit" />
+        </action>                
+
+        <!-- PSInfo管理 -->
+        <action
+            name="psinfoForm"
+            parameter="fid"
+            path="/psinfo"
+            scope="request"
+            type="com.salmat.jbm.struts.action.PSInfoAction">
+            <exception
+	            key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".PSInfoList" />
+            <forward name="editInit" path=".PSInfoEdit" />
+        </action> 
+        
+        <!-- LGInfo管理 -->
+        <action
+            name="lginfoForm"
+            parameter="fid"
+            path="/lginfo"
+            scope="request"
+            type="com.salmat.jbm.struts.action.LGInfoAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".LGInfoList" />
+            <forward name="editInit" path=".LGInfoEdit" />
+  
+        </action> 
+        
+        <!-- LGPrice管理 -->
+        <action
+            name="lgPriceForm"
+            parameter="fid"
+            path="/lgPrice"
+            scope="request"
+            type="com.salmat.jbm.struts.action.LgPriceAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".LgPriceList" />
+            <forward name="editInit" path=".LgPriceEdit" />
+        </action>
+        
+        <!-- LCInfo管理 -->
+        <action
+            name="lcinfoForm"
+            parameter="fid"
+            path="/lcinfo"
+            scope="request"
+            type="com.salmat.jbm.struts.action.LCInfoAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".LCInfoList" />
+            <forward name="editInit" path=".LCInfoEdit" />
+
+        </action>                 
+        
+        <!-- ReturnInfo管理 -->
+        <action
+            name="returninfoForm"
+            parameter="fid"
+            path="/returninfo"
+            scope="request"
+            type="com.salmat.jbm.struts.action.ReturnInfoAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".ReturnInfoList" />
+            <forward name="editInit" path=".ReturnInfoEdit" />
+        </action>       
+        
+        <!-- job code 工單樣本 -->
+        <action
+            name="jobCodeForm"
+            parameter="fid"
+            path="/jobcode"
+            scope="request"
+            type="com.salmat.jbm.struts.action.JobCodeAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".JobCodeList" />
+            <forward name="editInit" path=".JobCodeEdit" />
+        </action>     
+        
+        <!-- job bag 工單樣本 -->
+        <action
+            name="jobBagForm"
+            parameter="fid"
+            path="/jobbag"
+            scope="request"
+            type="com.salmat.jbm.struts.action.JobBagAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".JobBagList" />
+            <forward name="editInit" path=".JobBagEdit" />         
+            <forward name="deleteJobBag" path=".DeleteJobBag" />
+        </action>    
+        
+        <!-- job bag _OP  工單 -->
+        <action
+            name="jobBagForm"
+            parameter="fid"
+            path="/jobbagOP"
+            scope="request"
+            type="com.salmat.jbm.struts.action.JobBagOPAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".JobBagList_OP" />     
+            <forward name="editInit" path=".JobBagEdit_OP" />
+            <forward name="deleteInit" path=".JobBagDelete_OP" />              
+        </action>     
+        
+		<!-- job bag_OP工單回報完成 -->
+        <action
+            name="completedJobForm"
+            parameter="fid"
+            path="/completedJob"
+            scope="request"
+            type="com.salmat.jbm.struts.action.CompletedJobAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="selectUser" path=".SelectUser" />
+            <forward name="reportStatusInit" path=".ReportStatus" />            
+        </action>  
+        
+        <!-- job bag _LG  工單 -->
+        <action
+            name="jobBagForm"
+            parameter="fid"
+            path="/jobbagLG"
+            scope="request"
+            type="com.salmat.jbm.struts.action.JobBagLGAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".JobBagList_LG" />
+            <forward name="list_return" path=".JobBagList_Return_LG" /> 
+            <forward name="editInit" path=".JobBagEdit_LG" />
+            <forward name="lcFormEditInit" path=".LCFormEdit" />
+            <forward name="lgFormEditInit" path=".LGFormEdit" />
+        </action>
+        
+        <!-- 寄送郵資單管理 -->
+        <action
+            name="lgformForm"
+            parameter="fid"
+            path="/lgform"
+            scope="request"
+            type="com.salmat.jbm.struts.action.LGFormAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />          
+            <forward name="list" path=".LGFormList" />
+            <forward name="editInit" path=".LGFormEdit" />
+  
+        </action>         
+        
+        <!-- job bag status -->
+        <action
+            name="jobBagForm"
+            parameter="fid"
+            path="/jobbagStatus"
+            scope="request"
+            type="com.salmat.jbm.struts.action.JobBagStatusAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="summary" path=".JobBagStatus_Summary" />      
+            <forward name="list" path=".JobBagStatus_List" />
+        </action>       
+        
+        
+		<!-- report-->
+        <action
+            name="reportForm"
+            parameter="fid"
+            path="/report"
+            scope="request"
+            type="com.salmat.jbm.struts.action.ReportAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="dailyJobStatisticsReportQuery" path=".dailyJobStatisticsReportQuery" />
+            <forward name="dailyJobControlReportQuery" path=".dailyJobControlReportQuery" />
+            <forward name="materialUsedReportQuery" path=".materialUsedReportQuery" />
+            <forward name="userAuthorityReportQuery" path=".userAuthorityReportQuery" />
+            <forward name="LGformQuery" path=".lgformQuery" />
+            <forward name="customerItemReportQuery" path=".customerItemReportQuery" /> 
+            <forward name="historyReportList" path=".historyReportList" />         
+            <forward name="estimateProduction" path=".estimateProduction" />
+            <forward name="logisticFilesDownload" path=".logisticFilesDownload" />
+            <forward name="dailyLogementReportQuery" path=".dailyLogementReportQuery" />
+            <forward name="dailyLogementReport" path=".dailyLogementReport" />                
+            <forward name="dmSummaryReportQuery" path=".dmSummaryReportQuery" />
+            <forward name="dmSummaryReport" path=".dmSummaryReport" />            
+            <forward name="amexJobReportQuery" path=".amexJobReportQuery" />
+            <forward name="citiMailReportQuery" path=".citiMailReportQuery" />                                                               
+        </action>   
+        
+
+		<!-- acct 收費項目 -->
+        <action
+            name="acctChargeItemForm"
+            parameter="fid"
+            path="/acctChargeItem"
+            scope="request"
+            type="com.salmat.jbm.struts.action.AcctChargeItemAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="list" path=".AcctChargeItemList" />
+            <forward name="editInit" path=".AcctChargeItemEdit" />
+        </action>
+        
+		<!-- cs 客戶合約 -->
+        <action
+            name="acctCustomerContractForm"
+            parameter="fid"
+            path="/acctCustomerContract"
+            scope="request"
+            type="com.salmat.jbm.struts.action.AcctCustomerContractAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="list" path=".AcctCustomerContractList" />
+            <forward name="editInit" path=".AcctCustomerContractEdit" />
+        </action>
+        
+        
+        
+		<!-- cs 工單收費項目查詢  -->
+        <action
+            name="acctJobCodeChargeItemForm"
+            parameter="fid"
+            path="/acctJobCodeChargeItem"
+            scope="request"
+            type="com.salmat.jbm.struts.action.AcctJobCodeChargeItemAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="list" path=".AcctJobCodeChargeItemList" />
+            <forward name="editInit" path=".AcctJobCodeChargeItemEdit" />
+        </action>
+        
+        
+		<!-- cs 客戶帳務聯絡資料查詢  -->
+        <action
+            name="customerReceiverForm"
+            parameter="fid"
+            path="/customerReceiver"
+            scope="request"
+            type="com.salmat.jbm.struts.action.CustomerReceiverAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="list" path=".CustomerReceiverList" />
+            <forward name="editInit" path=".CustomerReceiverEdit" />
+        </action>        
+        
+		<!-- accounting 維護Section跟工單對應規則 -->
+        <action
+            name="sectionMappingForm"
+            parameter="fid"
+            path="/sectionMapping"
+            scope="request"
+            type="com.salmat.jbm.struts.action.SectionMappingAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />    
+            <forward name="list" path=".SectionMappingList" />
+            <forward name="editInit" path=".SectionMappingEdit" />
+        </action>                
+        
+        
+        
+        
+		<!-- acct Price status -->
+        <action
+            name="acctDebitNoteForm"
+            parameter="fid"
+            path="/acctDebitNote"
+            scope="request"
+            type="com.salmat.jbm.struts.action.AcctDebitNoteAction">    
+            <forward name="popup_message" path="/Message.jsp" />
+            <forward name="confirmProcess" path="/accountingMgr/confirmProcess.jsp" />
+            <forward name="list" path=".AcctDebitNoteList" />
+            <forward name="editInit" path=".AcctDebitNoteEdit" />
+            <forward name="exportToEP1" path=".AcctDebitNoteExportToEP1" />
+            <forward name="batchExportToEp1" path=".BatchExportToEP1" />
+            <forward name="step1_1_MergeDebitNote" path="/accountingMgr/AcctDebitNote_step1.1_MergeDebitNote.jsp" />
+            <forward name="step2_list" path="/accountingMgr/AcctDebitNote_step2_list.jsp" />
+            <forward name="step2_addInit" path="/accountingMgr/AcctDebitNote_step2_addInit.jsp" />
+            <forward name="step2_edit" path="/accountingMgr/AcctDebitNote_step2_edit.jsp" />            
+            <forward name="step3_print" path="/accountingMgr/AcctDebitNote_step3_print.jsp" />
+            <forward name="step5_list" path="/accountingMgr/AcctDebitNote_step5_list.jsp" />
+            <forward name="step5_edit" path="/accountingMgr/AcctDebitNote_step5_edit.jsp" />  
+            <forward name="step6_print" path="/accountingMgr/AcctDebitNote_step6_print.jsp" />        
+            <forward name="step6_1_list" path="/accountingMgr/AcctDebitNote_step6.1_list.jsp" />                  
+            <forward name="step8_list" path="/accountingMgr/AcctDebitNote_step8_list.jsp" />
+            <forward name="step9_print" path="/accountingMgr/AcctDebitNote_step9_print.jsp" />    
+            <forward name="fubonReportList" path=".AcctFubonReportList" />
+            <forward name="funbonReportSubmit" path=".AcctFunbonReportSubmit" />                                      
+        </action>  
+        
+        
+        <!--  download用法 a href="download.do?fileName=<%=targetfileName%>&application=msexcel&charset=utf-8" target="new" -->
+        <action
+            name="acctDebitNoteForm"
+            path="/download"
+            scope="request"
+            type="com.salmat.jbm.struts.action.DownloadAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />
+         </action>                
+         
+         <!-- 假期編修 -->
+        <action
+            name="holidayForm"
+            path="/holidayAction"
+            parameter="fid"
+            scope="request"
+            type="com.salmat.jbm.struts.action.HolidayAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />
+            <forward name="init" path=".HolidayEdit" />	             
+            <forward name="edit" path=".HolidayEdit" />
+         </action>
+         
+         <!-- 郵資新制 3+2碼 2%折扣 -->
+        <action
+            name="zipcodeForm"
+            path="/zipcode"
+            parameter="fid"
+            scope="request"
+            type="com.salmat.jbm.struts.action.ZipcodeAction">
+            <exception  key="error.global.mesage"
+	            type="java.lang.Exception"
+	             path=".errorPage" />
+            <forward name="list" path=".ZipcodeList" />
+            <forward name="redirect_list" path="/zipcode.do" redirect="true" /> <!-- 導向查詢Action -->
+         </action>
+        
+  </action-mappings>
+
+  <message-resources parameter="com.salmat.jbm.struts.ApplicationResources" />
+
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property
+        property="definitions-config"
+           value="/WEB-INF/tiles-defs.xml"/>
+  </plug-in>
+  
+  <plug-in className="com.salmat.jbm.struts.converter.ConverterPlugin">
+        <set-property property="datePattern" value="yyyy-MM-dd" />
+  </plug-in>
+  
+
+        
+</struts-config>
+

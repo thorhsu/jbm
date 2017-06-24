@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.salmat.jbm.hibernate.JbmCounter" table="jbm_counter" schema="dbo" catalog="jbm" lazy="false">
+        <id name="counterName" type="string">
+            <column name="COUNTER_NAME" length="20" />
+        </id>
+        <property name="curCounterNo" type="integer">
+            <column name="CUR_COUNTER_NO" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CREATE_DATE" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

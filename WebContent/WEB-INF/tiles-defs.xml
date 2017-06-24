@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+  <definition name=".generalLayout" path="/GeneralLayout.jsp">
+    <put name="header" value="/Header.jsp"/>
+    <put name="left" value="/LeftBar.jsp"/>    
+    <put name="workArea" value="/WorkArea.jsp"/>
+    <put name="footer" value="/Footer.jsp"/>
+  </definition>
+  <definition name=".generalLayout_cs" path="/GeneralLayout_cs.jsp">       
+    <put name="workArea_cs" value="/WorkArea_cs.jsp"/>    
+  </definition>
+  
+ <definition name=".message" extends=".generalLayout" >
+    <put name="workArea" value="/Message.jsp"/>
+  </definition>
+  <definition name=".message_cs" extends=".generalLayout_cs" >
+    <put name="workArea_cs" value="/Message.jsp"/>
+  </definition>
+  
+  
+ <definition name=".pdfDownload" extends=".generalLayout" >
+    <put name="workArea" value="/PdfDownload.jsp"/>
+  </definition>  
+
+<!-- 客戶需求單系統 -->
+ <!-- Customer Extends Action -->  
+  <definition name=".CustomerExtendsList" extends=".generalLayout_cs">
+    <put name="workArea_cs" value="/entityMgr/CustomerExtendsList.jsp" />
+  </definition>
+  <definition name=".CustomerExtendsEdit" extends=".generalLayout_cs">  
+    <put name="workArea_cs" value="/entityMgr/CustomerExtendsEdit.jsp" />
+  </definition>
+  
+  <!-- 計價標準 -->  
+  <definition name=".AcctItemFxList" extends=".generalLayout_cs">
+    <put name="workArea_cs" value="/entityMgr/AcctItemFxList.jsp" />
+  </definition>
+  <definition name=".AcctItemFxEdit" extends=".generalLayout_cs">  
+    <put name="workArea_cs" value="/entityMgr/AcctItemFxEdit.jsp" />
+  </definition>
+<!-- end 客戶需求單系統 -->
+  
+ <!-- ###################################################################################################################### --> 
+  
+<!-- JBM --> 
+<!-- Employee Action -->  
+  <definition name=".EmployeeList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/EmployeeList.jsp" />
+  </definition>
+  <definition name=".EmployeeEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/EmployeeEdit.jsp" />
+  </definition>
+  
+  <definition name=".errorPage" extends=".generalLayout">
+    <put name="workArea" value="/errorPage.jsp" />
+  </definition>
+  
+<!-- Code Action -->  
+  <definition name=".CodeList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/CodeList.jsp" />
+  </definition>
+  <definition name=".CodeEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/CodeEdit.jsp" />
+  </definition>  
+  
+<!-- Amex Action -->  
+  <definition name=".AmexList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/AmexList.jsp" />
+  </definition>
+  <definition name=".AmexEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/AmexEdit.jsp" />
+  </definition>   
+
+
+<!-- Syslog Action -->  
+  <definition name=".SyslogList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/SyslogList.jsp" />
+  </definition>
+  
+  
+<!-- Customer Action -->  
+  <definition name=".CustomerList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/CustomerList.jsp" />
+  </definition>
+  <definition name=".CustomerEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/CustomerEdit.jsp" />
+  </definition>
+  
+<!-- delete job bag -->
+  <definition name=".DeleteJobBag" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/DeleteJobBag.jsp" />
+  </definition>
+
+<!-- LPInfo Action -->  
+  <definition name=".LPInfoList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/LPInfoList.jsp" />
+  </definition>
+  <definition name=".LPInfoEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/LPInfoEdit.jsp" />
+  </definition>
+
+  <!-- MPInfo Action -->  
+  <definition name=".MPInfoList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/MPInfoList.jsp" />
+  </definition>
+  <definition name=".MPInfoEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/MPInfoEdit.jsp" />
+  </definition>
+
+  <!-- PSInfo Action -->  
+  <definition name=".PSInfoList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/PSInfoList.jsp" />
+  </definition>
+  <definition name=".PSInfoEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/PSInfoEdit.jsp" />
+  </definition>  
+      
+  <!-- LGInfo Action -->  
+  <definition name=".LGInfoList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/LGInfoList.jsp" />
+  </definition>
+  <definition name=".LGInfoEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/LGInfoEdit.jsp" />
+  </definition>  
+  
+  <!-- Holiday Setting -->
+  <definition name=".HolidayEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/HolidayEdit.jsp" />
+  </definition>  
+  
+  <!-- LgPrice Action -->  
+  <definition name=".LgPriceList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/LgPriceList.jsp" />
+  </definition>
+  <definition name=".LgPriceEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/LgPriceEdit.jsp" />
+  </definition>
+  
+  <!-- LCInfo Action -->  
+  <definition name=".LCInfoList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/LCInfoList.jsp" />
+  </definition>
+  <definition name=".LCInfoEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/LCInfoEdit.jsp" />
+  </definition>          
+      
+  <!-- ReturnInfo Action -->  
+  <definition name=".ReturnInfoList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/ReturnInfoList.jsp" />
+  </definition>
+  <definition name=".ReturnInfoEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/ReturnInfoEdit.jsp" />
+  </definition>   
+  
+  <!-- JobCode Action -->  
+  <definition name=".JobCodeList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/JobCodeList.jsp" />
+  </definition>
+  <definition name=".JobCodeEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/JobCodeEdit.jsp" />
+  </definition> 
+  
+  <!-- JobBag Action -->  
+  <definition name=".JobBagList" extends=".generalLayout">
+    <put name="workArea" value="/entityMgr/JobBagList.jsp" />
+  </definition>
+  <definition name=".JobBagEdit" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/JobBagEdit.jsp" />
+  </definition>  
+  
+	<!-- JobBag_OP Action -->  
+  <definition name=".JobBagList_OP" extends=".generalLayout">
+    <put name="workArea" value="/OPMgr/JobBagList.jsp" />
+  </definition>
+  <definition name=".JobBagEdit_OP" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/JobBagEdit.jsp" />
+  </definition> 
+  <definition name=".JobBagDelete_OP" extends=".generalLayout">  
+    <put name="workArea" value="/OPMgr/JobBagDelete.jsp" />
+  </definition>   
+  
+	<!-- JobBag_LG Action -->  
+  <definition name=".JobBagList_LG" extends=".generalLayout">
+    <put name="workArea" value="/LGMgr/JobBagList.jsp" />
+  </definition>
+  <definition name=".JobBagList_Return_LG" extends=".generalLayout">
+    <put name="workArea" value="/LGMgr/JobBagList_Return.jsp" />
+  </definition>  
+  <definition name=".JobBagEdit_LG" extends=".generalLayout">  
+    <put name="workArea" value="/entityMgr/JobBagEdit.jsp" />
+  </definition>   
+  <definition name=".LGFormEdit" extends=".generalLayout">  
+    <put name="workArea" value="/LGMgr/LGFormEdit.jsp" />
+  </definition>
+  <definition name=".LCFormEdit" extends=".generalLayout">  
+    <put name="workArea" value="/LGMgr/LCFormEdit.jsp" />
+  </definition>  
+    
+  
+  
+  
+  
+	<!-- Completed job Report  Action -->  
+  <definition name=".SelectUser" extends=".generalLayout">
+    <put name="workArea" value="/OPMgr/SelectUser.jsp" />
+  </definition>
+  <definition name=".ReportStatus" extends=".generalLayout">  
+    <put name="workArea" value="/OPMgr/ReportStatus.jsp" />
+  </definition> 
+  
+	<!-- JobBag_LG Action -->  
+  <definition name=".JobBagStatus_Summary" extends=".generalLayout">
+    <put name="workArea" value="/JobBagStatus/JobBagStatus_Summary.jsp" />  
+  </definition>  
+  <definition name=".JobBagStatus_List" extends=".generalLayout">
+    <put name="workArea" value="/JobBagStatus/JobBagStatus_List.jsp" />  
+  </definition>  
+    
+	<!-- Report Action -->  
+  <definition name=".dailyJobStatisticsReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/DailyJobStatisticsReportQuery.jsp" />  
+  </definition>  
+  <definition name=".dailyJobControlReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/DailyJobControlReportQuery.jsp" />  
+  </definition> 
+  <definition name=".materialUsedReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/MaterialUsedReportQuery.jsp" />  
+  </definition>  
+  <definition name=".userAuthorityReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/UserAuthorityReportQuery.jsp" />  
+  </definition>
+  <definition name=".lgformQuery" extends=".generalLayout">  
+    <put name="workArea" value="/ReportMgr/LGFormQuery.jsp" />  
+  </definition>  
+  <definition name=".customerItemReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/CustomerItemReportQuery.jsp" />  
+  </definition>       
+  <definition name=".historyReportList" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/HistoryReportList.jsp" />  
+  </definition>   
+  <definition name=".estimateProduction" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/EstimateProduction.jsp" />  
+  </definition>
+  <definition name=".citiMailReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/CitiMailReportQuery.jsp" />  
+  </definition>
+  <definition name=".logisticFilesDownload" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/LogisticFilesDownload.jsp" />  
+  </definition>    
+  <definition name=".dailyLogementReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/DailyLogementReportQuery.jsp" />  
+  </definition>
+  <definition name=".dailyLogementReport" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/DailyLogementReportPrint.jsp" />  
+  </definition>    
+  <definition name=".dmSummaryReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/DmSummaryReportQuery.jsp" />  
+  </definition>
+  <definition name=".dmSummaryReport" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/DmSummaryReportPrint.jsp" />  
+  </definition>        
+  <definition name=".amexJobReportQuery" extends=".generalLayout">
+    <put name="workArea" value="/ReportMgr/AmexJobReportQuery.jsp" />  
+  </definition>     
+  <!-- acct 收費項目 -->  
+  <definition name=".AcctChargeItemList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctChargeItemList.jsp" />
+  </definition>
+  <definition name=".AcctChargeItemEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctChargeItemEdit.jsp" />
+  </definition>   
+  
+      
+  <!-- cs 客戶合約 -->  
+  <definition name=".AcctCustomerContractList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctCustomerContractList.jsp" />
+  </definition>
+  <definition name=".AcctCustomerContractEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctCustomerContractEdit.jsp" />
+  </definition>      
+
+  <!-- cs 工單收費項目維護 -->  
+  <definition name=".AcctJobCodeChargeItemList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctJobCodeChargeItemList.jsp" />
+  </definition>
+  <definition name=".AcctJobCodeChargeItemEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctJobCodeChargeItemEdit.jsp" />
+  </definition> 
+
+
+
+  <!-- cs 客戶帳務聯絡資料 -->  
+  <definition name=".CustomerReceiverList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/CustomerReceiverList.jsp" />
+  </definition>
+  <definition name=".CustomerReceiverEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/CustomerReceiverEdit.jsp" />
+  </definition> 
+
+  <!-- accounting 維護Section跟工單對應規則 -->
+  <definition name=".SectionMappingList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/SectionMappingList.jsp" />
+  </definition>
+  <definition name=".SectionMappingEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/SectionMappingEdit.jsp" />
+  </definition>
+  
+  <!-- acct Price Action -->  
+  <definition name=".AcctPriceList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctPriceList.jsp" />
+  </definition>
+  <definition name=".AcctPriceEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctPriceEdit.jsp" />
+  </definition>      
+    
+  <!-- acct Generate Debit Note Action -->  
+  <definition name=".AcctDebitNoteList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctDebitNoteList.jsp" />
+  </definition>
+  <definition name=".AcctDebitNoteEdit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNoteEdit.jsp" />
+  </definition>      
+  <definition name=".AcctDebitNoteExportToEP1" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_ExportToEP1.jsp" />
+  </definition>
+  <definition name=".BatchExportToEP1" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/BatchExportToEP1.jsp" />
+  </definition>
+  <definition name=".AcctDebitNote_step2_edit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step2_edit.jsp" />
+  </definition>
+  <definition name=".AcctDebitNote_step3_print" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step3_print.jsp" />
+  </definition>  
+  <definition name=".AcctFubonReportList" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctFubonReportList.jsp" />
+  </definition>  
+  <definition name=".AcctFunbonReportSubmit" extends=".generalLayout">
+    <put name="workArea" value="/accountingMgr/AcctFubonReport_print.jsp" />
+  </definition>    
+  <definition name=".AcctDebitNote_step5_list" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step5_list.jsp" />
+  </definition>
+  <definition name=".AcctDebitNote_step5_edit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step5_edit.jsp" />
+  </definition>
+  <definition name=".AcctDebitNote_step6_list" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step6_list.jsp" />
+  </definition>
+  <definition name=".AcctDebitNote_step8_edit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step8_edit.jsp" />
+  </definition>
+  <definition name=".AcctDebitNote_step9_edit" extends=".generalLayout">  
+    <put name="workArea" value="/accountingMgr/AcctDebitNote_step9_edit.jsp" />
+  </definition> 
+  
+  <!-- Zipcode Action -->  
+  <definition name=".ZipcodeList" extends=".generalLayout">
+    <put name="workArea" value="/LGMgr/ZipcodeList.jsp" />
+  </definition>               
+</tiles-definitions>

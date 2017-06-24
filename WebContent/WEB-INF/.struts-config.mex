@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/login.do" location="50,50" dimension="229,84" />
+  <StrutsActivity path="/employee.do" location="350,50" dimension="248,84" />
+  <StrutsActivity path="/code.do" location="650,50" dimension="226,84" />
+  <StrutsActivity path="/amex.do" location="950,50" dimension="229,84" />
+  <StrutsActivity path="/syslog.do" location="1250,50" dimension="232,84" />
+  <StrutsActivity path="/customer.do" location="1550,50" dimension="246,84" />
+  <StrutsActivity path="/lpinfo.do" location="1850,50" dimension="234,84" />
+  <StrutsActivity path="/mpinfo.do" location="2150,50" dimension="237,84" />
+  <StrutsActivity path="/psinfo.do" location="2450,50" dimension="233,84" />
+  <StrutsActivity path="/lginfo.do" location="2750,50" dimension="236,84" />
+  <StrutsActivity path="/lcinfo.do" location="50,250" dimension="236,84" />
+  <StrutsActivity path="/returninfo.do" location="350,250" dimension="253,84" />
+  <StrutsActivity path="/jobcode.do" location="950,250" dimension="242,84" />
+  <StrutsActivity path="/jobbag.do" location="1250,250" dimension="236,84" />
+  <StrutsActivity path="/jobbagOP.do" location="1550,250" dimension="250,84" />
+  <StrutsActivity path="/completedJob.do" location="1850,250" dimension="268,84" />
+  <StrutsActivity path="/jobbagLG.do" location="2450,250" dimension="251,84" />
+  <StrutsActivity path="/lgform.do" location="50,450" dimension="241,84" />
+  <StrutsActivity path="/jobbagStatus.do" location="350,450" dimension="263,84" />
+  <StrutsActivity path="/report.do" location="950,450" dimension="233,84" />
+  <StrutsActivity path="/acctChargeItem.do" location="1250,450" dimension="277,84" />
+  <StrutsActivity path="/acctCustomerContract.do" location="1850,450" dimension="307,84" />
+  <StrutsActivity path="/acctJobCodeChargeItem.do" location="2450,450" dimension="318,84" />
+  <StrutsActivity path="/customerReceiver.do" location="50,650" dimension="287,84" />
+  <StrutsActivity path="/sectionMapping.do" location="650,650" dimension="277,84" />
+  <StrutsActivity path="/acctDebitNote.do" location="1250,650" dimension="269,84" />
+  <StrutsActivity path="/download.do" location="1250,1750" dimension="249,84" />
+  <StrutsActivity path="homepage;6" location="1850,650" dimension="89,72" />
+  <StrutsActivity path="global_redirect;6" location="2150,650" dimension="111,72" />
+  <StrutsActivity path="loginpage;6" location="2450,650" dimension="87,72" />
+  <StrutsActivity path="pdfDownload;6" location="2750,650" dimension="105,72" />
+  <StrutsActivity path="message;6" location="50,850" dimension="79,72" />
+  <StrutsActivity path="login_success;6" location="350,850" dimension="180,72" />
+  <StrutsActivity path="jsonMessage;6" location="650,850" dimension="114,72" />
+  <StrutsActivity path="jsonObject;6" location="950,850" dimension="105,72" />
+  <StrutsActivity path="/Login.jsp" location="1250,850" dimension="76,48" />
+  <StrutsActivity path="/ChangePassword.jsp" location="1550,850" dimension="127,48" />
+  <StrutsActivity path=".EmployeeEdit" location="1850,850" dimension="98,48" />
+  <StrutsActivity path=".EmployeeList" location="2150,850" dimension="96,48" />
+  <StrutsActivity path=".CodeEdit" location="2450,850" dimension="76,48" />
+  <StrutsActivity path=".CodeList" location="2750,850" dimension="74,48" />
+  <StrutsActivity path=".AmexEdit" location="1250,950" dimension="79,48" />
+  <StrutsActivity path=".AmexList" location="1550,950" dimension="77,48" />
+  <StrutsActivity path=".SyslogList" location="1850,950" dimension="80,48" />
+  <StrutsActivity path=".CustomerEdit" location="2150,950" dimension="96,48" />
+  <StrutsActivity path=".CustomerList" location="2450,950" dimension="94,48" />
+  <StrutsActivity path=".LPInfoEdit" location="2750,950" dimension="84,48" />
+  <StrutsActivity path=".LPInfoList" location="50,1050" dimension="82,48" />
+  <StrutsActivity path=".MPInfoEdit" location="350,1050" dimension="87,48" />
+  <StrutsActivity path=".MPInfoList" location="650,1050" dimension="85,48" />
+  <StrutsActivity path=".PSInfoEdit" location="950,1050" dimension="83,48" />
+  <StrutsActivity path=".PSInfoList" location="1250,1050" dimension="81,48" />
+  <StrutsActivity path=".LGInfoEdit" location="1550,1050" dimension="86,48" />
+  <StrutsActivity path=".LGInfoList" location="1850,1050" dimension="84,48" />
+  <StrutsActivity path=".LCInfoEdit" location="2150,1050" dimension="86,48" />
+  <StrutsActivity path=".LCInfoList" location="2450,1050" dimension="84,48" />
+  <StrutsActivity path=".ReturnInfoEdit" location="2750,1050" dimension="103,48" />
+  <StrutsActivity path=".ReturnInfoList" location="50,1150" dimension="101,48" />
+  <StrutsActivity path=".JobCodeEdit" location="350,1150" dimension="92,48" />
+  <StrutsActivity path=".JobCodeList" location="650,1150" dimension="90,48" />
+  <StrutsActivity path=".JobBagEdit" location="950,1150" dimension="86,48" />
+  <StrutsActivity path=".JobBagList" location="1250,1150" dimension="84,48" />
+  <StrutsActivity path=".JobBagEdit_OP" location="1550,1150" dimension="106,48" />
+  <StrutsActivity path=".JobBagList_OP" location="1850,1150" dimension="104,48" />
+  <StrutsActivity path=".JobBagDelete_OP" location="2150,1150" dimension="116,48" />
+  <StrutsActivity path=".SelectUser" location="2450,1150" dimension="80,48" />
+  <StrutsActivity path=".ReportStatus" location="2750,1150" dimension="91,48" />
+  <StrutsActivity path=".LCFormEdit" location="50,1250" dimension="91,48" />
+  <StrutsActivity path=".LGFormEdit" location="1250,1250" dimension="91,48" />
+  <StrutsActivity path=".JobBagEdit_LG" location="350,1250" dimension="107,48" />
+  <StrutsActivity path=".JobBagList_LG" location="650,1250" dimension="105,48" />
+  <StrutsActivity path=".JobBagList_Return_LG" location="950,1250" dimension="143,48" />
+  <StrutsActivity path=".LGFormList" location="1550,1250" dimension="89,48" />
+  <StrutsActivity path=".JobBagStatus_Summary" location="1850,1250" dimension="145,48" />
+  <StrutsActivity path=".JobBagStatus_List" location="2150,1250" dimension="117,48" />
+  <StrutsActivity path=".dmSummaryReport" location="2450,1250" dimension="124,48" />
+  <StrutsActivity path=".dailyJobControlReportQuery" location="2750,1250" dimension="168,48" />
+  <StrutsActivity path=".dailyLogementReportQuery" location="50,1350" dimension="163,48" />
+  <StrutsActivity path=".dailyJobStatisticsReportQuery" location="350,1350" dimension="171,48" />
+  <StrutsActivity path=".historyReportList" location="650,1350" dimension="113,48" />
+  <StrutsActivity path=".customerItemReportQuery" location="950,1350" dimension="156,48" />
+  <StrutsActivity path=".dmSummaryReportQuery" location="1250,1350" dimension="153,48" />
+  <StrutsActivity path=".lgformQuery" location="1550,1350" dimension="93,48" />
+  <StrutsActivity path=".userAuthorityReportQuery" location="1850,1350" dimension="157,48" />
+  <StrutsActivity path=".dailyLogementReport" location="2150,1350" dimension="134,48" />
+  <StrutsActivity path=".materialUsedReportQuery" location="2450,1350" dimension="153,48" />
+  <StrutsActivity path=".amexJobReportQuery" location="950,1750" dimension="134,48" />
+  <StrutsActivity path=".AcctChargeItemEdit" location="2750,1350" dimension="127,48" />
+  <StrutsActivity path=".AcctChargeItemList" location="50,1450" dimension="125,48" />
+  <StrutsActivity path=".AcctCustomerContractEdit" location="350,1450" dimension="157,48" />
+  <StrutsActivity path=".AcctCustomerContractList" location="650,1450" dimension="155,48" />
+  <StrutsActivity path=".AcctJobCodeChargeItemEdit" location="950,1450" dimension="168,48" />
+  <StrutsActivity path=".AcctJobCodeChargeItemList" location="1250,1450" dimension="166,48" />
+  <StrutsActivity path=".CustomerReceiverEdit" location="1550,1450" dimension="137,48" />
+  <StrutsActivity path=".CustomerReceiverList" location="1850,1450" dimension="135,48" />
+  <StrutsActivity path=".SectionMappingEdit" location="2150,1450" dimension="127,48" />
+  <StrutsActivity path=".SectionMappingList" location="2450,1450" dimension="125,48" />
+  <StrutsActivity path=".AcctFunbonReportSubmit" location="2750,1450" dimension="154,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step5_list.jsp" location="50,1550" dimension="239,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step9_print.jsp" location="350,1550" dimension="248,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step6_print.jsp" location="650,1550" dimension="248,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step8_list.jsp" location="950,1550" dimension="239,48" />
+  <StrutsActivity path=".AcctDebitNoteExportToEP1" location="1250,1550" dimension="164,48" />
+  <StrutsActivity path=".AcctDebitNoteList" location="1550,1550" dimension="117,48" />
+  <StrutsActivity path=".AcctDebitNoteEdit" location="1850,1550" dimension="119,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step2_edit.jsp" location="2150,1550" dimension="243,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step3_print.jsp" location="2450,1550" dimension="248,48" />
+  <StrutsActivity path=".BatchExportToEP1" location="1550,1750" dimension="123,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step2_addInit.jsp" location="2750,1550" dimension="259,48" />
+  <StrutsActivity path=".AcctFubonReportList" location="50,1650" dimension="132,48" />
+  <StrutsActivity path="/Message.jsp" location="350,1650" dimension="87,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step5_edit.jsp" location="650,1650" dimension="243,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step1.1_MergeDebitNote.jsp" location="950,1650" dimension="312,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step6.1_list.jsp" location="1850,1650" dimension="248,48" />
+  <StrutsActivity path="/accountingMgr/AcctDebitNote_step2_list.jsp" location="1550,1650" dimension="239,48" />
+  <StrutsActivity path="/" location="2150,1650" dimension="32,48" />
+  <StrutsActivity path="/Redirect.jsp" location="2450,1650" dimension="87,48" />
+  <StrutsActivity path=".pdfDownload" location="2750,1650" dimension="96,48" />
+  <StrutsActivity path=".message" location="50,1750" dimension="70,48" />
+  <StrutsActivity path="/JsonMessage.jsp" location="350,1750" dimension="107,48" />
+  <StrutsActivity path="/JsonObject.jsp" location="650,1750" dimension="98,48" />
+  <StrutsActivity path=".BatchExportToEp1" location="3050,950" dimension="123,48" />
+  <StrutsActivity path=".BatchExportToEp1.jsp" location="3050,1050" dimension="139,48" />
+  <StrutsActivity path="/accountingMgr/BatchExportToEp1.jsp" location="3050,1150" dimension="213,48" />
+  <StrutsActivity path="/BatchExportToEp1" location="3050,1350" dimension="123,48" />
+  <StrutsActivity path="BatchExportToEp1" location="3050,1250" dimension="120,48" />
+  <StrutsActivity path="/accountingMgr/BatchExportToEP1.jsp" location="3050,1450" dimension="213,48" />
+  <StrutsActivity path=".BatchExportToEP1.jsp" location="3050,1650" dimension="139,48" />
+  <StrutsTransition id="/returninfo.do,list,.ReturnInfoList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="476,334" />
+      <AbsolutePoint location="476,409" />
+      <AbsolutePoint location="1565,409" />
+      <AbsolutePoint location="1565,749" />
+      <AbsolutePoint location="147,749" />
+      <AbsolutePoint location="147,1150" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,funbonReportSubmit,.AcctFunbonReportSubmit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1437,734" />
+      <AbsolutePoint location="1437,1713" />
+      <AbsolutePoint location="3024,1713" />
+      <AbsolutePoint location="3024,1474" />
+      <AbsolutePoint location="2904,1474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completedJob.do,reportStatusInit,.ReportStatus,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1984,334" />
+      <AbsolutePoint location="1984,431" />
+      <AbsolutePoint location="2906,431" />
+      <AbsolutePoint location="2906,1174" />
+      <AbsolutePoint location="2841,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,dmSummaryReport,.dmSummaryReport,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1181,534" />
+      <AbsolutePoint location="1181,905" />
+      <AbsolutePoint location="2551,905" />
+      <AbsolutePoint location="2551,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,amexJobReportQuery,.amexJobReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,492" />
+      <AbsolutePoint location="944,492" />
+      <AbsolutePoint location="944,1774" />
+      <AbsolutePoint location="950,1774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctChargeItem.do,editInit,.AcctChargeItemEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1522,534" />
+      <AbsolutePoint location="1522,1431" />
+      <AbsolutePoint location="2813,1431" />
+      <AbsolutePoint location="2813,1398" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagOP.do,list,.JobBagList_OP,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1762,334" />
+      <AbsolutePoint location="1762,749" />
+      <AbsolutePoint location="2113,749" />
+      <AbsolutePoint location="2113,1174" />
+      <AbsolutePoint location="1954,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="jsonMessage;6,null,/JsonMessage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,886" />
+      <AbsolutePoint location="635,886" />
+      <AbsolutePoint location="635,1774" />
+      <AbsolutePoint location="457,1774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step5_edit,/accountingMgr/AcctDebitNote_step5_edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1456,734" />
+      <AbsolutePoint location="1456,803" />
+      <AbsolutePoint location="1673,803" />
+      <AbsolutePoint location="1673,567" />
+      <AbsolutePoint location="1951,567" />
+      <AbsolutePoint location="1951,1007" />
+      <AbsolutePoint location="1818,1007" />
+      <AbsolutePoint location="1818,1843" />
+      <AbsolutePoint location="771,1843" />
+      <AbsolutePoint location="771,1698" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagOP.do,deleteInit,.JobBagDelete_OP,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1784,334" />
+      <AbsolutePoint location="1784,1135" />
+      <AbsolutePoint location="2208,1135" />
+      <AbsolutePoint location="2208,1150" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/amex.do,editInit,.AmexEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1064,50" />
+      <AbsolutePoint location="1064,-25" />
+      <AbsolutePoint location="-25,-25" />
+      <AbsolutePoint location="-25,974" />
+      <AbsolutePoint location="1250,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lcinfo.do,list,.LCInfoList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,292" />
+      <AbsolutePoint location="-55,292" />
+      <AbsolutePoint location="-55,1313" />
+      <AbsolutePoint location="2359,1313" />
+      <AbsolutePoint location="2359,1074" />
+      <AbsolutePoint location="2450,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="message;6,null,.message,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="129,886" />
+      <AbsolutePoint location="304,886" />
+      <AbsolutePoint location="304,1774" />
+      <AbsolutePoint location="120,1774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobcode.do,editInit,.JobCodeEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,292" />
+      <AbsolutePoint location="695,292" />
+      <AbsolutePoint location="695,609" />
+      <AbsolutePoint location="545,609" />
+      <AbsolutePoint location="545,1174" />
+      <AbsolutePoint location="442,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/psinfo.do,list,.PSInfoList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2683,92" />
+      <AbsolutePoint location="2716,92" />
+      <AbsolutePoint location="2716,409" />
+      <AbsolutePoint location="1732,409" />
+      <AbsolutePoint location="1732,1013" />
+      <AbsolutePoint location="1290,1013" />
+      <AbsolutePoint location="1290,1050" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,dailyLogementReport,.dailyLogementReport,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1183,492" />
+      <AbsolutePoint location="1187,492" />
+      <AbsolutePoint location="1187,1445" />
+      <AbsolutePoint location="2217,1445" />
+      <AbsolutePoint location="2217,1398" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctJobCodeChargeItem.do,editInit,.AcctJobCodeChargeItemEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2609,534" />
+      <AbsolutePoint location="2609,1145" />
+      <AbsolutePoint location="1110,1145" />
+      <AbsolutePoint location="1110,1450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/psinfo.do,editInit,.PSInfoEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2566,50" />
+      <AbsolutePoint location="2566,-55" />
+      <AbsolutePoint location="-85,-55" />
+      <AbsolutePoint location="-85,1013" />
+      <AbsolutePoint location="991,1013" />
+      <AbsolutePoint location="991,1050" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,dmSummaryReportQuery,.dmSummaryReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1066,450" />
+      <AbsolutePoint location="1066,431" />
+      <AbsolutePoint location="1534,431" />
+      <AbsolutePoint location="1534,1374" />
+      <AbsolutePoint location="1403,1374" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,dailyLogementReportQuery,.dailyLogementReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1128,534" />
+      <AbsolutePoint location="1128,1435" />
+      <AbsolutePoint location="131,1435" />
+      <AbsolutePoint location="131,1398" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,dailyJobStatisticsReportQuery,.dailyJobStatisticsReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1076,534" />
+      <AbsolutePoint location="1076,929" />
+      <AbsolutePoint location="464,929" />
+      <AbsolutePoint location="464,1350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lgform.do,list,.LGFormList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,492" />
+      <AbsolutePoint location="40,492" />
+      <AbsolutePoint location="40,1308" />
+      <AbsolutePoint location="1594,1308" />
+      <AbsolutePoint location="1594,1298" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,LGformQuery,.lgformQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1100,534" />
+      <AbsolutePoint location="1100,1345" />
+      <AbsolutePoint location="1596,1345" />
+      <AbsolutePoint location="1596,1350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,fubonReportList,.AcctFubonReportList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1437,734" />
+      <AbsolutePoint location="1437,1719" />
+      <AbsolutePoint location="113,1719" />
+      <AbsolutePoint location="113,1698" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="jsonObject;6,null,/JsonObject.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,886" />
+      <AbsolutePoint location="905,886" />
+      <AbsolutePoint location="905,1774" />
+      <AbsolutePoint location="748,1774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,popup_message,/Message.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,670" />
+      <AbsolutePoint location="1649,670" />
+      <AbsolutePoint location="1649,585" />
+      <AbsolutePoint location="1975,585" />
+      <AbsolutePoint location="1975,1005" />
+      <AbsolutePoint location="2403,1005" />
+      <AbsolutePoint location="2403,1869" />
+      <AbsolutePoint location="538,1869" />
+      <AbsolutePoint location="538,1674" />
+      <AbsolutePoint location="437,1674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/code.do,editInit,.CodeEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="793,134" />
+      <AbsolutePoint location="793,379" />
+      <AbsolutePoint location="2359,379" />
+      <AbsolutePoint location="2359,874" />
+      <AbsolutePoint location="2450,874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lpinfo.do,editInit,.LPInfoEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1967,134" />
+      <AbsolutePoint location="1967,149" />
+      <AbsolutePoint location="2963,149" />
+      <AbsolutePoint location="2963,974" />
+      <AbsolutePoint location="2834,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,userAuthorityReportQuery,.userAuthorityReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1138,534" />
+      <AbsolutePoint location="1138,1437" />
+      <AbsolutePoint location="1928,1437" />
+      <AbsolutePoint location="1928,1398" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer.do,editInit,.CustomerEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1703,50" />
+      <AbsolutePoint location="1703,5" />
+      <AbsolutePoint location="2408,5" />
+      <AbsolutePoint location="2408,974" />
+      <AbsolutePoint location="2246,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step1_1_MergeDebitNote,/accountingMgr/AcctDebitNote_step1.1_MergeDebitNote.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1418,734" />
+      <AbsolutePoint location="1418,1674" />
+      <AbsolutePoint location="1262,1674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step3_print,/accountingMgr/AcctDebitNote_step3_print.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1384,650" />
+      <AbsolutePoint location="1384,641" />
+      <AbsolutePoint location="2615,641" />
+      <AbsolutePoint location="2615,1550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="login_success;6,null,/jobbagStatus.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="463,850" />
+      <AbsolutePoint location="463,534" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,exportToEP1,.AcctDebitNoteExportToEP1,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,703" />
+      <AbsolutePoint location="1544,703" />
+      <AbsolutePoint location="1544,1574" />
+      <AbsolutePoint location="1414,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,materialUsedReportQuery,.materialUsedReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1144,534" />
+      <AbsolutePoint location="1144,915" />
+      <AbsolutePoint location="2577,915" />
+      <AbsolutePoint location="2577,1350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customerReceiver.do,editInit,.CustomerReceiverEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="203,734" />
+      <AbsolutePoint location="203,1135" />
+      <AbsolutePoint location="1663,1135" />
+      <AbsolutePoint location="1663,1450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="pdfDownload;6,null,.pdfDownload,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2855,686" />
+      <AbsolutePoint location="2985,686" />
+      <AbsolutePoint location="2985,1219" />
+      <AbsolutePoint location="2425,1219" />
+      <AbsolutePoint location="2425,1788" />
+      <AbsolutePoint location="2798,1788" />
+      <AbsolutePoint location="2798,1698" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagStatus.do,summary,.JobBagStatus_Summary,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="395,534" />
+      <AbsolutePoint location="395,809" />
+      <AbsolutePoint location="334,809" />
+      <AbsolutePoint location="334,1613" />
+      <AbsolutePoint location="1702,1613" />
+      <AbsolutePoint location="1702,1274" />
+      <AbsolutePoint location="1850,1274" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbag.do,list,.JobBagList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,306" />
+      <AbsolutePoint location="1243,306" />
+      <AbsolutePoint location="1243,1174" />
+      <AbsolutePoint location="1250,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customerReceiver.do,list,.CustomerReceiverList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="193,734" />
+      <AbsolutePoint location="193,1245" />
+      <AbsolutePoint location="1732,1245" />
+      <AbsolutePoint location="1732,1474" />
+      <AbsolutePoint location="1850,1474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbag.do,editInit,.JobBagEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,292" />
+      <AbsolutePoint location="1229,292" />
+      <AbsolutePoint location="1229,1174" />
+      <AbsolutePoint location="1036,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lcinfo.do,editInit,.LCInfoEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,322" />
+      <AbsolutePoint location="35,322" />
+      <AbsolutePoint location="35,1213" />
+      <AbsolutePoint location="2329,1213" />
+      <AbsolutePoint location="2329,1074" />
+      <AbsolutePoint location="2236,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step5_list,/accountingMgr/AcctDebitNote_step5_list.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1384,734" />
+      <AbsolutePoint location="1384,943" />
+      <AbsolutePoint location="221,943" />
+      <AbsolutePoint location="221,1550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctJobCodeChargeItem.do,list,.AcctJobCodeChargeItemList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2700,534" />
+      <AbsolutePoint location="2700,1612" />
+      <AbsolutePoint location="1757,1612" />
+      <AbsolutePoint location="1757,1372" />
+      <AbsolutePoint location="1684,1372" />
+      <AbsolutePoint location="1684,940" />
+      <AbsolutePoint location="1456,940" />
+      <AbsolutePoint location="1456,1474" />
+      <AbsolutePoint location="1416,1474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctCustomerContract.do,editInit,.AcctCustomerContractEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2070,534" />
+      <AbsolutePoint location="2070,1545" />
+      <AbsolutePoint location="428,1545" />
+      <AbsolutePoint location="428,1498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/mpinfo.do,editInit,.MPInfoEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2282,134" />
+      <AbsolutePoint location="2282,1113" />
+      <AbsolutePoint location="393,1113" />
+      <AbsolutePoint location="393,1098" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagOP.do,editInit,.JobBagEdit_OP,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1702,334" />
+      <AbsolutePoint location="1702,1174" />
+      <AbsolutePoint location="1656,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,editInit,.AcctDebitNoteEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,692" />
+      <AbsolutePoint location="1847,692" />
+      <AbsolutePoint location="1847,1574" />
+      <AbsolutePoint location="1850,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step2_list,/accountingMgr/AcctDebitNote_step2_list.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,708" />
+      <AbsolutePoint location="1540,708" />
+      <AbsolutePoint location="1540,1674" />
+      <AbsolutePoint location="1550,1674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/code.do,list,.CodeList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,134" />
+      <AbsolutePoint location="763,609" />
+      <AbsolutePoint location="2648,609" />
+      <AbsolutePoint location="2648,874" />
+      <AbsolutePoint location="2750,874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lginfo.do,editInit,.LGInfoEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2862,134" />
+      <AbsolutePoint location="2862,809" />
+      <AbsolutePoint location="1762,809" />
+      <AbsolutePoint location="1762,1074" />
+      <AbsolutePoint location="1636,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lgform.do,editInit,.LGFormEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="170,534" />
+      <AbsolutePoint location="170,609" />
+      <AbsolutePoint location="425,609" />
+      <AbsolutePoint location="425,809" />
+      <AbsolutePoint location="1163,809" />
+      <AbsolutePoint location="1163,1274" />
+      <AbsolutePoint location="1250,1274" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/employee.do,list,.EmployeeList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="474,134" />
+      <AbsolutePoint location="474,209" />
+      <AbsolutePoint location="2329,209" />
+      <AbsolutePoint location="2329,874" />
+      <AbsolutePoint location="2246,874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step2_addInit,/accountingMgr/AcctDebitNote_step2_addInit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1427,734" />
+      <AbsolutePoint location="1427,1738" />
+      <AbsolutePoint location="2879,1738" />
+      <AbsolutePoint location="2879,1598" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/mpinfo.do,list,.MPInfoList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2246,134" />
+      <AbsolutePoint location="2246,549" />
+      <AbsolutePoint location="575,549" />
+      <AbsolutePoint location="575,1074" />
+      <AbsolutePoint location="650,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lpinfo.do,list,.LPInfoList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1967,50" />
+      <AbsolutePoint location="1967,35" />
+      <AbsolutePoint location="5,35" />
+      <AbsolutePoint location="5,1074" />
+      <AbsolutePoint location="50,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,dailyJobControlReportQuery,.dailyJobControlReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1110,534" />
+      <AbsolutePoint location="1110,1035" />
+      <AbsolutePoint location="2862,1035" />
+      <AbsolutePoint location="2862,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step9_print,/accountingMgr/AcctDebitNote_step9_print.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1509,734" />
+      <AbsolutePoint location="1509,1915" />
+      <AbsolutePoint location="474,1915" />
+      <AbsolutePoint location="474,1598" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagLG.do,lcFormEditInit,.LCFormEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2701,292" />
+      <AbsolutePoint location="2933,292" />
+      <AbsolutePoint location="2933,1513" />
+      <AbsolutePoint location="258,1513" />
+      <AbsolutePoint location="258,1274" />
+      <AbsolutePoint location="141,1274" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctCustomerContract.do,list,.AcctCustomerContractList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2003,534" />
+      <AbsolutePoint location="2003,1045" />
+      <AbsolutePoint location="767,1045" />
+      <AbsolutePoint location="767,1450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,batchExportToEp1,.BatchExportToEP1,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1384,692" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,list,.AcctDebitNoteList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,698" />
+      <AbsolutePoint location="1794,698" />
+      <AbsolutePoint location="1794,1574" />
+      <AbsolutePoint location="1667,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/sectionMapping.do,editInit,.SectionMappingEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="788,734" />
+      <AbsolutePoint location="788,841" />
+      <AbsolutePoint location="2088,841" />
+      <AbsolutePoint location="2088,1474" />
+      <AbsolutePoint location="2150,1474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/syslog.do,list,.SyslogList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1366,134" />
+      <AbsolutePoint location="1366,179" />
+      <AbsolutePoint location="3084,179" />
+      <AbsolutePoint location="3084,937" />
+      <AbsolutePoint location="1890,937" />
+      <AbsolutePoint location="1890,950" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagLG.do,editInit,.JobBagEdit_LG,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2450,320" />
+      <AbsolutePoint location="2381,320" />
+      <AbsolutePoint location="2381,1335" />
+      <AbsolutePoint location="403,1335" />
+      <AbsolutePoint location="403,1298" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer.do,list,.CustomerList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1673,50" />
+      <AbsolutePoint location="1673,-85" />
+      <AbsolutePoint location="3024,-85" />
+      <AbsolutePoint location="3024,1013" />
+      <AbsolutePoint location="2497,1013" />
+      <AbsolutePoint location="2497,998" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagStatus.do,list,.JobBagStatus_List,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="515,534" />
+      <AbsolutePoint location="515,831" />
+      <AbsolutePoint location="2028,831" />
+      <AbsolutePoint location="2028,1274" />
+      <AbsolutePoint location="2150,1274" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,customerItemReportQuery,.customerItemReportQuery,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1114,534" />
+      <AbsolutePoint location="1114,1374" />
+      <AbsolutePoint location="1106,1374" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagLG.do,list_return,.JobBagList_Return_LG,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2450,278" />
+      <AbsolutePoint location="2192,278" />
+      <AbsolutePoint location="2192,631" />
+      <AbsolutePoint location="1062,631" />
+      <AbsolutePoint location="1062,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/lginfo.do,list,.LGInfoList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2840,134" />
+      <AbsolutePoint location="2840,579" />
+      <AbsolutePoint location="2052,579" />
+      <AbsolutePoint location="2052,1074" />
+      <AbsolutePoint location="1934,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="global_redirect;6,null,/Redirect.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2205,722" />
+      <AbsolutePoint location="2205,758" />
+      <AbsolutePoint location="2730,758" />
+      <AbsolutePoint location="2730,1674" />
+      <AbsolutePoint location="2537,1674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step6_1_list,/accountingMgr/AcctDebitNote_step6.1_list.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,718" />
+      <AbsolutePoint location="1529,718" />
+      <AbsolutePoint location="1529,1708" />
+      <AbsolutePoint location="1974,1708" />
+      <AbsolutePoint location="1974,1698" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobcode.do,list,.JobCodeList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1071,334" />
+      <AbsolutePoint location="1071,342" />
+      <AbsolutePoint location="3266,342" />
+      <AbsolutePoint location="3266,1405" />
+      <AbsolutePoint location="854,1405" />
+      <AbsolutePoint location="854,1174" />
+      <AbsolutePoint location="740,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/employee.do,editInit,.EmployeeEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="598,92" />
+      <AbsolutePoint location="628,92" />
+      <AbsolutePoint location="628,779" />
+      <AbsolutePoint location="1899,779" />
+      <AbsolutePoint location="1899,850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="homepage;6,null,/,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1916,722" />
+      <AbsolutePoint location="1916,770" />
+      <AbsolutePoint location="2447,770" />
+      <AbsolutePoint location="2447,1674" />
+      <AbsolutePoint location="2182,1674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="loginpage;6,null,/login.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2450,692" />
+      <AbsolutePoint location="2440,692" />
+      <AbsolutePoint location="2440,241" />
+      <AbsolutePoint location="164,241" />
+      <AbsolutePoint location="164,134" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctChargeItem.do,list,.AcctChargeItemList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1527,492" />
+      <AbsolutePoint location="1837,492" />
+      <AbsolutePoint location="1837,1535" />
+      <AbsolutePoint location="112,1535" />
+      <AbsolutePoint location="112,1498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/completedJob.do,selectUser,.SelectUser,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2118,292" />
+      <AbsolutePoint location="2430,292" />
+      <AbsolutePoint location="2430,1174" />
+      <AbsolutePoint location="2450,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,change_password,/ChangePassword.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="279,92" />
+      <AbsolutePoint location="306,92" />
+      <AbsolutePoint location="306,579" />
+      <AbsolutePoint location="1613,579" />
+      <AbsolutePoint location="1613,850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step8_list,/accountingMgr/AcctDebitNote_step8_list.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1362,734" />
+      <AbsolutePoint location="1362,929" />
+      <AbsolutePoint location="1213,929" />
+      <AbsolutePoint location="1213,1574" />
+      <AbsolutePoint location="1189,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagLG.do,lgFormEditInit,.LGFormEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2450,306" />
+      <AbsolutePoint location="2303,306" />
+      <AbsolutePoint location="2303,1235" />
+      <AbsolutePoint location="1295,1235" />
+      <AbsolutePoint location="1295,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jobbagLG.do,list,.JobBagList_LG,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2575,250" />
+      <AbsolutePoint location="2575,231" />
+      <AbsolutePoint location="934,231" />
+      <AbsolutePoint location="934,1274" />
+      <AbsolutePoint location="755,1274" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step6_print,/accountingMgr/AcctDebitNote_step6_print.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1418,734" />
+      <AbsolutePoint location="1418,1637" />
+      <AbsolutePoint location="774,1637" />
+      <AbsolutePoint location="774,1598" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/report.do,historyReportList,.historyReportList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1048,534" />
+      <AbsolutePoint location="1048,631" />
+      <AbsolutePoint location="605,631" />
+      <AbsolutePoint location="605,1374" />
+      <AbsolutePoint location="650,1374" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,login,/Login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="182,134" />
+      <AbsolutePoint location="182,179" />
+      <AbsolutePoint location="1207,179" />
+      <AbsolutePoint location="1207,874" />
+      <AbsolutePoint location="1250,874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/amex.do,list,.AmexList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1064,134" />
+      <AbsolutePoint location="1064,149" />
+      <AbsolutePoint location="1815,149" />
+      <AbsolutePoint location="1815,974" />
+      <AbsolutePoint location="1627,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/sectionMapping.do,list,.SectionMappingList,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="767,734" />
+      <AbsolutePoint location="767,847" />
+      <AbsolutePoint location="2678,847" />
+      <AbsolutePoint location="2678,1474" />
+      <AbsolutePoint location="2575,1474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/acctDebitNote.do,step2_edit,/accountingMgr/AcctDebitNote_step2_edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1519,728" />
+      <AbsolutePoint location="2137,728" />
+      <AbsolutePoint location="2137,1574" />
+      <AbsolutePoint location="2150,1574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/returninfo.do,editInit,.ReturnInfoEdit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="498,334" />
+      <AbsolutePoint location="498,356" />
+      <AbsolutePoint location="2884,356" />
+      <AbsolutePoint location="2884,1074" />
+      <AbsolutePoint location="2853,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

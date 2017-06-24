@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+/* html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, note {margin: 2;padding: 2;border: 0;outline: 0;} */
+
+body {
+	margin: 2;
+	font-size: 11px;
+}
+
+a {  text-decoration:underline;}
+
+/* 大區塊 */
+#wrap {width:971px; margin:0 auto;}
+#top {width:971px; height:94px; background-image:url(images/top_temp.png); background-repeat:no-repeat; margin-top:10px; margin-bottom:7px; }
+#left {width:151px; height:707px; float:left; background-image:url(images/left_temp.png); background-repeat:no-repeat; }
+#right{width:792px; float:left; margin-left:7px;}
+#rightHeader{width:792px; height:25px; float:left; background-image:url(images/right_header.png); background-repeat:no-repeat; padding-top:15px; padding-left:20px;}
+#rightContent{width:792px; float:left; background-color:#FFF; padding-left:20px; padding-bottom:20px;}
+#rightFooter{width:792px; height:30px; float:left; background-image:url(images/right_footer.png); background-repeat:no-repeat;padding-left:20px;}
+.clear {clear:both;}
+#center {width:821px; height:384px; background-image:url(images/center.png); background-repeat:no-repeat; margin:0 auto; margin-top:100px;}
+#centerTextWrap{width:400px; margin:0 auto; padding-top:180px;}
+#topmenu { height:28px; font:12px;}
+#topmenu ul {list-style:none;}
+#topmenu li {display:inline;}
+#topmenu a, #topmenu a:visited {display:block; float:left; background:url(images/btn_section.jpg) repeat-x; text-align:center; padding:4px 10px 0 10px; margin-right:5px; height:24px; color:#000000; text-decoration:none;}
+#topmenu .active a {background:url(images/btn_section_o.jpg) repeat-x; color:#FFFFFF; font-weight:bold;}
+#topmenu .active a:hover {background:url(images/btn_section_o.jpg) repeat-x; color:#333;}
+#topmenu a:hover {background:url(images/btn_section_o.jpg) repeat-x; color:#fff;}
+
+
+#textContent{width:255px; margin-top:10px; margin-bottom:10px; margin-left:15px; line-height:20px; float:left;}
+#speechHolder{display:inline-block; width:480px; border:#dcecbf; border-width:1px; border-style:solid; margin-top:20px;}
+#speechThumb{width:50px; height:50px; margin-top:14px; margin-left:14px; float:left;}
+#speechDate{width:135px; margin-top:10px; float:left; text-align:right; }
+#speechReply{width:670px; margin-bottom:10px; float:left; text-align:right;}
+#replyTextContent{width:200px; margin-top:10px; margin-left:15px; margin-bottom:5px; line-height:20px; float:left;}
+#speechReplyHolder{display:inline-block; width:430px; border:#dcecbf; border-width:1px; border-style:solid; margin-top:13px; margin-left:50px; margin-bottom:8px; float:left;}
+	
+	
+/* 字型 */
+.font10{font-size:11px; color:#000000;}
+.font12{font-size:12px; color:#000000;}
+.title{font-size:16px; color:#000000; font-weight:bold;}
+
+.queryTableBKColor{background-color:#4aae66;}
+.queryTableCellBKColor{background-color:#f4faf3;}
+.resultTableBKColor{background-color:#DFF4DD;}
+.resultTableBKColor tr:nth-child(2n){background-color:#dff4dd;}
+.resultTableBKColor tr:nth-child(2n+1){background-color:#B4EEB4;}
+.resultTableBKColor tr.checkedLine{background-color:#EEA9B8;}
+.resultTableBKColor tr:hover{background-color:grey;}
+
+.resultTableHeaderBKColor{background-color:#4AAE66;}
+.detailTableHeaderBKColor{background-color:#3CB371;}
+.editTableBKColor{background-color:#4aae66;}
+.editTableLabelCellBKColor{background-color:#dff4dd;}
+.editTableContentCellBKColor{background-color:#f4faf3;}
+.editTableNextLabelCellBKColor{background-color:#00CC66;}
+
+
+.disabled 
+{ 
+ 	background-color: #f4faf3; 
+} 
+.blue12{font-size:12px; color:#4caabd;}
+.grey10{font-size:10px; color:#777777;}
+.grey11{font-size:11px; color:#777777;}
+.grey12{font-size:12px; color:#777777;}
+.orange12{font-size:12px; color:#ff7e00;}
+.orange14b{font-size:14px; color:#ff7e00; font-weight:bold;}
+.green11{font-size:11px; color:#a3c661;}
+.green12{font-size:12px; color:#4a940f;}
+.white14{font-size:14px; color:#ffffff;}
+.white14b{font-size:14px; color:#ffffff; font-weight:bold;}
+.black12{font-size:12px; color:#000000;}
+.black12b{font-size:12px; color:#000000; font-weight:bold;}
+.black14{font-size:14px; color:#000000;}
+.red12{font-size:12px; color:#FF0000;}
+.red20b{font-size:20px; color:#FF0000; font-weight:bold;}
+.blue12b{font-size:12px; color:#4caabd; font-weight:bold;}
+.oddLine{background-color:#B4EEB4;}
+.evenLine{background-color:#dff4dd;}
+.mouseOver{background-color:grey;}
+.checkedLine{background-color:#EEA9B8;}
+img.handCursor{cursor: pointer;}
+
+/* jqModal base Styling courtesy of;
+  Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied,
+  the Window's z-index value will be set to 3000 by default (in jqModal.js). You
+  can change this value by either;
+    a) supplying one via CSS
+    b) passing the "zIndex" parameter. E.g.  (window).jqm({zIndex: 500}); */
+  
+.jqmWindow {
+    display: none;    
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    cursor: move;
+    
+    margin-left: -300px;
+    width: 600px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.jqmWindow2 {
+    display: none;    
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    
+    margin-left: -300px;
+    width: 600px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.jqmWindowPreview {
+    display: none;
+    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    cursor: move;
+    
+    margin-left: -300px;
+    width: 600px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.jqmOverlay { background-color: #000; }
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+

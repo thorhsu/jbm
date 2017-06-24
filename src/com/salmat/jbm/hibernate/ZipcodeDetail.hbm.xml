@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.salmat.jbm.hibernate.ZipcodeDetail" table="zipcode_detail" schema="dbo" catalog="jbm" lazy="false">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="zipcodeInfo" class="com.salmat.jbm.hibernate.ZipcodeInfo" fetch="select" lazy="false">
+            <column name="ZIPCODE_INFO_NO" not-null="true" />
+        </many-to-one>
+        <property name="zipcode" type="string">
+            <column name="ZIPCODE" length="20" />
+        </property>
+        <property name="zipcodeSum" type="integer">
+            <column name="ZIPCODE_SUM" />
+        </property>
+        <property name="zipcodeTotal" type="integer">
+            <column name="ZIPCODE_TOTAL" />
+        </property>
+    </class>
+</hibernate-mapping>

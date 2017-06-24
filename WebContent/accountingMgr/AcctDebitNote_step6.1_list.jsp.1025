@@ -1,0 +1,153 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@page import="com.salmat.jbm.hibernate.*"%>
+<%@page import="com.salmat.jbm.service.*"%>
+<%@page import="com.painter.util.*"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
+<%@page import="net.mlw.vlh.ValueList"%>
+<%@page import="org.apache.commons.beanutils.PropertyUtils"%>
+<%@ taglib uri='/WEB-INF/fmt.tld' prefix='fmt'%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix="vlh" uri="http://valuelist.sourceforge.net/tags-valuelist" %>
+<%@ taglib uri='/WEB-INF/fmt.tld' prefix='fmt'%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JBM v2.0</title>
+<link rel="stylesheet" type="text/css" href="css/backend.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" /> 
+<link rel="stylesheet" href="js/aqua/theme.css" type="text/css" /> 
+<script src="js/lib/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.validate.js" type="text/javascript"></script>
+</head>
+<%
+	AcctDno acctDno= (AcctDno)request.getAttribute("acctDno");
+%>
+
+<script type="text/javascript"> 
+
+$().ready(function() {
+	// validate my form when it is submitted
+	$("#myform").validate();
+	
+	
+	//檢查 發票格式錯誤
+	$("#myform").submit(function(){
+		var checkFG = true;
+	    $("input[name^=invoicenos]").each(function() {   
+			var inNo =$(this).val() ; // 每一個invocie No
+			if (inNo != "") { //只檢查有輸入的發票資料
+				re = /^[A-Z][A-Z]\d{8}$/;
+				if(! re.test(inNo)) { 
+				  alert("發票格式錯誤!");
+				  checkFG = false;
+			  	  return false;
+			  	}
+		  	}
+	    });
+
+		if (! checkFG) 
+			return false;
+		else
+        	return true;     
+	});
+	
+});
+</script>
+
+
+<body>
+<form name="myform" id="myform" action="acctDebitNote.do" method="post">
+<input type="hidden" name="fid" value="step6_1_editSubmit" />
+<input type="hidden" name="debitNo" value="<%=acctDno.getDebitNo() %>" />
+<div align="center">
+	    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+	      <tr>
+	        <td height="26" class="title">Step 6.1: 發票維護</td>
+          </tr>
+	      <tr>
+	        <td height="15">&nbsp;</td>
+          </tr>
+
+
+			<tr>
+				<td>
+				<table border=0 cellspacing=1 cellpadding=6 width="100%" bgcolor=#4aae66 align=left id="table76">
+					<tr>
+						<td bgcolor=#dff4dd>CustomerNo: </td>
+						<td bgcolor=#f4faf3><%=acctDno.getCustomer().getCustNo() %></td>						
+						<td bgcolor=#dff4dd>Debit Note Number:</td>
+						<td bgcolor=#f4faf3><%=acctDno.getDebitNo() %></td>						
+						<td bgcolor=#dff4dd>Section:</td>
+						<td bgcolor=#f4faf3><%=acctDno.getSection() %></td>						
+						<td bgcolor=#dff4dd>During:</td>
+						<td bgcolor=#f4faf3><%=acctDno.getDesSdt() %>~<%=acctDno.getDesEdt() %></td>						
+					</tr>
+				</table>
+				</td>
+			</tr>
+
+
+
+	      <tr>
+	        <td>
+	        <table border="0" width="100%" id="table9" class="resultTableBKColor"  >
+            <vlh:root value="dataList"  url="?" includeParameters="*">         
+			<tr >
+	            <vlh:header>
+	            <vlh:column title="Cost Center"      property="cost_center"  sortable="desc" attributes="width=\"10%\" class=\"resultTableHeaderBKColor\" style=\"text-align:center;\""/>	                        
+	            <vlh:column title="Expense"      property="expense"  sortable="desc" attributes="width=\"6%\" height=\"30\" class=\"resultTableHeaderBKColor\"  style=\"text-align:center;\""/>
+	            <vlh:column title="Invoice No"      property="invoiceno"  sortable="desc" attributes="width=\"10%\" class=\"resultTableHeaderBKColor\" style=\"text-align:center;\""/>	            
+	            <vlh:column title="TAX"      property="tax"  sortable="desc" attributes="width=\"10%\" height=\"30\" class=\"resultTableHeaderBKColor\" style=\"text-align:center;\""/>
+	            <vlh:column title="TYPE"      property="invoicetyp"  sortable="desc" attributes="width=\"6%\" height=\"30\" class=\"resultTableHeaderBKColor\" style=\"text-align:center;\""/>
+	            </vlh:header>
+              </tr>         
+              <c:forEach var="bean" items="${dataList}" > 
+	          <tr  >
+	            <td >
+	            <input type="hidden" name="invoiceIds" id="invoiceIds" size="10" value="<c:out value="${bean.id}" />"/>
+	            <input type="text" name="costCenters" id="costCenters" size="10" value="<c:out value="${bean.cost_center}" />"/></td>
+	            <td ><input type="text" name="expenses" id="expenses" size="10"  style="text-align:right;" value="<c:out value="${bean.expense}" />"/></td>
+	            <td ><input type="text" name="invoicenos" id="invoicenos" size="10" value="<c:out value="${bean.invoiceno}" />" maxlength="10" minlength="10" /></td>
+	            <td ><input type="text" name="taxs" id="taxs" size="10" style="text-align:right;" value="<c:out value="${bean.tax}" />"/></td>
+	            <td ><input type="text" name="invoicetyps" id="invoicetyps" size="10" readonly value="<c:out value="${bean.invoicetyp}" />"/></td> 
+              </tr>
+              </c:forEach>
+	           
+<%for (int i=0; i<15; i++)  { %>	           
+	          <tr  >
+	            <td  >
+	            <input type="hidden" name="invoiceIds" id="invoiceIds" value=""/>
+	            <input type="text" name="costCenters" id="costCenters" size="10" value=""/></td>
+	            <td ><input type="text" name="expenses" id="expenses" size="10"  style="text-align:right;" value=""/></td>
+	            <td ><input type="text" name="invoicenos" id="invoicenos" size="10"  value="" maxlength="10" minlength="10"/></td>
+	            <td ><input type="text" name="taxs" id="taxs" size="10" style="text-align:right;" value=""/></td>
+	            <td ><input type="text" name="invoicetyps" id="invoicetyps" size="10" value="1" readonly /></td> 
+              </tr>
+<%} %>              	          
+	          </table>
+	           
+	          </td>
+          </tr>
+	      <tr>
+	        <td>Type 1: 為EP1 開立多張發票使用,如單價為未稅值, 則輸入未稅值, 如單價為含稅值, 則輸入含稅值</td>
+          </tr>
+	      <tr>
+	        <td>
+			<HR/>
+	        </td>
+          </tr>
+          
+			<tr>
+				<td align="center">
+				<input name="button" type="submit" id="button" value="儲存" />
+				</td>
+			</tr>          
+        </table></vlh:root>
+</div>
+</form>
+</body>
+</html>
